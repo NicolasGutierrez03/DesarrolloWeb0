@@ -1,0 +1,96 @@
+.mybody {
+    background-image: url(../img/ruleta-casino.jpg);
+    background-size: cover;
+    background-position: center;
+    font-family: 'Hr',Arial, sans-serif;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.myheader {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 40px;
+}
+
+main {
+    padding: 20px;
+}
+
+
+.myfooter{
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    text-align: center;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: fixed;
+    width: 100%;
+    padding: 20px;
+    z-index: 1000;
+}
+
+.myfooter p {
+    margin: 0; 
+    line-height: normal; 
+}
+
+.mytitle {
+    font-family: 'Arial','Impact', sans-serif;
+    font-size: 7.5rem;
+    margin: 0;
+    line-height: 1;
+}
+
+.myheader-right {
+    text-align: right;
+    margin: 0;
+}
+
+.mytagline {
+    font-weight: bold;
+    font-size: 25px;
+    margin: 0 0 20px 0;
+}
+
+.mynav-top {
+    margin-top: 0px;
+}
+
+.mynav-top ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-top: 2px solid white;
+    padding: 10px 10px 0;
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+}
+
+.mynav-top li {
+    
+}
+
+.mynav-top a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 30px;
+    padding: 8px 0px;
+    border-radius: 5px;
+    transition: background-color 0.4s, border 0.4s;
+}
+
+.mynav-top a:hover {
+    background-color: #7c7c7c85;
+}
+
+.card.semi-bg {
+  background-color: rgba(0, 0, 0, 0.8);
+}

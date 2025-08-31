@@ -3,37 +3,116 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=, initial-scale=1.0">
-    <title>Ruleta</title>
+    <title>Casino UDP</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/styles.css">
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/script.js"></script>
 </head>
 
 <body class="mybody">
+<body>
+
     <header class="myheader">
-        <div class="myheader-center">
-            <img src="img/Logo.jpg" alt="Logo">
-            <h1>Casino UDP</h1>
+        <div class="logo-nombre">
+            <img class="logo" src="img/Logo.jpg" alt="Logo">
+            <h1 class="nombre">Casino UDP</h1>
         </div>
 
-        <div class="myheader-right">
-            <h2 class="tagline">EL MEJOR ENTRETENIMIENTO PARA LA VIDA MODERNA.</h2>
-            <nav class="mymenu-header">
-                <ul>
-                    <li><a href="/index.html">Home</a></li>
-                    <li><a href="/inicioSesion.html">Sign Up</a></li>
-                    <li><a href="/perfil.html">Profile</a></li>
-                    <li><a href="/contacto.html">Contacto</a></li>
-                </ul>
-            </nav>
+        <div class="mynav">
+            <ul class="nav nav-pills justify-content-center">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Perfil.html">Perfil</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Contacto.html">Contactanos</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="mylogin">
+            <div class="btn-group" role="group" aria-label="Basic outlined example">
+                <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#loginModal">iniciar</button>
+                <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#registerModal">registrar</button>
+            </div>
         </div>
     </header>
 
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">    
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="loginModalLabel">Iniciar Sesión</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="loginEmail" class="form-label">Correo Electrónico</label>
+                            <input type="email" class="form-control" id="loginEmail" placeholder="tu@correo.com">
+                        </div>
+                        <div class="mb-3">
+                            <label for="loginPassword" class="form-label">Contraseña</label>
+                            <input type="password" class="form-control" id="loginPassword">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <p>¿No tienes una cuenta?</p>
+                    <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#registerModal">registrar</button>
+                    <br>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">    
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="registerModalLabel">Registrarse</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-4">
+                            <label for="registerName" class="form-label">Nombre Completo</label>
+                            <input type="text" class="form-control" id="registerName">
+                        </div>
+                        <div class="mb-4">
+                            <label for="registerEmail" class="form-label">Correo Electrónico</label>
+                            <input type="email" class="form-control" id="registerEmail">
+                        </div>
+                        <div class="mb-4">
+                            <label for="registerPassword" class="form-label">Crear Contraseña</label>
+                            <input type="password" class="form-control" id="registerPassword">
+                        </div>
+                        <div class="mb-4">
+                            <label for="registerPasswordConfirm" class="form-label">Confirmar Contraseña</label>
+                            <input type="password" class="form-control" id="registerPasswordConfirm">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Crear Cuenta</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <p>¿Ya tienes una cuenta?</p>
+                    <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#loginModal">iniciar</button>
+                    <br>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <footer class="myfooter">
         <p>&copy; 2025 Casino website</p>
     </footer>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
 
 </body>
 </html>

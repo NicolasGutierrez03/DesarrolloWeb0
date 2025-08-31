@@ -98,3 +98,10 @@
     margin: 0; 
     line-height: normal; 
 }
+
+.foto-perfil {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+
+}

@@ -19,11 +19,10 @@
                     </li>
                 </ul>
             </div>
-
-            <div class="mylogin">
-                <div class="btn-group" role="group" aria-label="Basic outlined example">
-                    <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#loginModal">iniciar</button>
-                    <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#registerModal">registrar</button>
-                </div>
-            </div>`;
-        }
+        <div class="mylogin">
+            <div class="btn-group" role="group" aria-label="Basic outlined example">
+                <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#loginModal">iniciar</button>
+                <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#registerModal">registrar</button>
+            </div>
+        </div>`;
+}

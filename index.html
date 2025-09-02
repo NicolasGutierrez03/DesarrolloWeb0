@@ -12,36 +12,10 @@
 <body>
 
     <header id="menuPrincipal" class="myheader"></header>
+    <main>
+        <div id="modals">
 
-    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">    
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="loginModalLabel">Iniciar Sesión</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="mb-3">
-                            <label for="loginEmail" class="form-label">Correo Electrónico</label>
-                            <input type="email" class="form-control" id="loginEmail" placeholder="tu@correo.com">
-                        </div>
-                        <div class="mb-3">
-                            <label for="loginPassword" class="form-label">Contraseña</label>
-                            <input type="password" class="form-control" id="loginPassword">
-                        </div>
-                        <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <p>¿No tienes una cuenta?</p>
-                    <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#registerModal">registrar</button>
-                    <br>
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                </div>
-            </div>
         </div>
-    </div>
 
     <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">    
         <div class="modal-dialog">
@@ -54,11 +28,15 @@
                     <form>
                         <div class="mb-4">
                             <label for="registerName" class="form-label">Nombre Completo</label>
-                            <input type="text" class="form-control" id="registerName">
+                            <input type="text" class="form-control" id="registerName" placeholder="Jose Manuel">
                         </div>
                         <div class="mb-4">
                             <label for="registerEmail" class="form-label">Correo Electrónico</label>
-                            <input type="email" class="form-control" id="registerEmail">
+                            <input type="email" class="form-control" id="registerEmail" placeholder="tu@correo.com">
+                        </div>
+                        <div class="mb-4">
+                            <label for="rut" class="form-label">RUT/DNI</label>
+                            <input type="text" class="form-control" id="rut" placeholder="12345678-9">
                         </div>
                         <div class="mb-4">
                             <label for="registerPassword" class="form-label">Crear Contraseña</label>
@@ -81,61 +59,66 @@
         </div>
     </div>
 
-  <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" data-bs-interval="15000">
-    <div class="carousel-indicators">
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"></button>
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"></button>
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"></button>
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" data-bs-interval="15000">
+        <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"></button>
+        </div>
+
+        <div class="carousel-inner">
+        <div class="carousel-item active">
+            <a href="ruleta.html" style="display: block; height: 100%;">
+            <img src="img/Ruleta.webp" class="d-block w-100" alt="Mesa-ruleta">
+            <div class="carousel-caption">
+                <h5>Ruleta europea</h5>
+                <p>Explora la mesa de Ruleta de nuestro casino.</p>
+            </div>
+            </a>
+        </div>
+
+        <div class="carousel-item">
+            <a href="index.html" style="display: block; height: 100%;">
+            <img src="img/Blackjack.jpg" class="d-block w-100" alt="Blackjack">
+            <div class="carousel-caption">
+                <h5>Blackjack</h5>
+                <p>Disfruta del Blackjack en nuestro casino.</p>
+            </div>
+            </a>
+        </div>
+
+        <div class="carousel-item">
+            <a href="index.html" style="display: block; height: 100%;">
+            <img src="img/Slots.jpg" class="d-block w-100" alt="Slots">
+            <div class="carousel-caption">
+                <h5>Slots</h5>
+                <p>Prueba nuestras máquinas tragamonedas.</p>
+            </div>
+            </a>
+        </div>
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+        </button>
     </div>
 
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <a href="ruleta.html" style="display: block; height: 100%;">
-          <img src="img/Ruleta.webp" class="d-block w-100" alt="Mesa-ruleta">
-          <div class="carousel-caption">
-            <h5>Ruleta europea</h5>
-            <p>Explora la mesa de Ruleta de nuestro casino.</p>
-          </div>
-        </a>
-      </div>
-
-      <div class="carousel-item">
-        <a href="index.html" style="display: block; height: 100%;">
-          <img src="img/Blackjack.jpg" class="d-block w-100" alt="Blackjack">
-          <div class="carousel-caption">
-            <h5>Blackjack</h5>
-            <p>Disfruta del Blackjack en nuestro casino.</p>
-          </div>
-        </a>
-      </div>
-
-      <div class="carousel-item">
-        <a href="index.html" style="display: block; height: 100%;">
-          <img src="img/Slots.jpg" class="d-block w-100" alt="Slots">
-          <div class="carousel-caption">
-            <h5>Slots</h5>
-            <p>Prueba nuestras máquinas tragamonedas.</p>
-          </div>
-        </a>
-      </div>
-    </div>
-
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon"></span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-      <span class="carousel-control-next-icon"></span>
-    </button>
-  </div>
-
+    </main>
+    
     <footer id="footer" class="myfooter">
         <p>&copy; 2025 Casino website</p>
     </footer>
 
+    
+
     <script src="js/Bootstrap/bootstrap.bundle.js"></script>
-    <script src="js/script.js"></script>
     <script src="js/menuPrincipal.js"></script>
+    <script src="js/validaciones.js"></script>
     <script src="js/footer.js"></script>
+    <script src="js/modalLogin.js"></script>
 
 </body>
 </html>

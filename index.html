@@ -4,40 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=, initial-scale=1.0">
     <title>Casino UDP</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/Bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body class="mybody">
 <body>
 
-    <header class="myheader">
-        <div class="logo-nombre">
-            <img class="logo" src="img/Logo.jpg" alt="Logo">
-            <h1 class="nombre">Casino UDP</h1>
-        </div>
-
-        <div class="mynav">
-            <ul class="nav nav-pills justify-content-center">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Inicio</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="Perfil.html">Perfil</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="contacto.html">Contactanos</a>
-                </li>
-            </ul>
-        </div>
-
-        <div class="mylogin">
-            <div class="btn-group" role="group" aria-label="Basic outlined example">
-                <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#loginModal">iniciar</button>
-                <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#registerModal">registrar</button>
-            </div>
-        </div>
-    </header>
+    <header id="menuPrincipal" class="myheader"></header>
 
     <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">    
         <div class="modal-dialog">
@@ -154,12 +128,14 @@
     </button>
   </div>
 
-    <footer class="myfooter">
+    <footer id="footer" class="myfooter">
         <p>&copy; 2025 Casino website</p>
     </footer>
 
-    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/Bootstrap/bootstrap.bundle.js"></script>
     <script src="js/script.js"></script>
+    <script src="js/menuPrincipal.js"></script>
+    <script src="js/footer.js"></script>
 
 </body>
 </html>

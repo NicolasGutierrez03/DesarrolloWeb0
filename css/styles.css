@@ -105,3 +105,17 @@
     border-radius: 50%;
 
 }
+
+.btn-circle {
+  padding: 0;
+  border: none;
+  background: none;
+}
+
+.avatar {
+  width: 40px;   /* tamaño */
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+}

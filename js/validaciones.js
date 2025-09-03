@@ -1,4 +1,6 @@
 function validarLogin(form) {
+    event.preventDefault();
+    
     const _btn = form.querySelector('button[type="submit"]');
     _btn.classList.add('disabled');
     _btn.innerText = 'Validando...';
@@ -9,7 +11,6 @@ function validarLogin(form) {
 
     let errores = 0;
 
-    // Validar email
     if (email.value.trim() === '') {
         email.classList.add('is-invalid');
         email.classList.remove('is-valid');
@@ -19,7 +20,6 @@ function validarLogin(form) {
         email.classList.add('is-valid');
     }
 
-    // Validar contraseña
     if (password.value.trim() === '') {
         password.classList.add('is-invalid');
         password.classList.remove('is-valid');
@@ -29,22 +29,20 @@ function validarLogin(form) {
         password.classList.add('is-valid');
     }
 
-    // Mostrar mensaje si hay errores
     if (errores > 0) {
         msg.classList.remove('d-none');
         _btn.classList.remove('disabled');
         _btn.innerText = 'Iniciar Sesión';
-        return false; // Evita que el form se envíe
+        return false; 
     } else {
         msg.classList.add('d-none');
-        // Aquí puedes poner la redirección o llamada a API
         window.location.href = './perfil.html';
         return true;
     }
 }
 
 function validarRegistro(form) {
-    event.preventDefault(); // evita el submit real
+    
 
     const _btn = form.querySelector('button[type="submit"]');
     _btn.classList.add('disabled');

@@ -20,7 +20,9 @@ main {
     display: flex;
     align-items: center;
     padding: 10px 20px;
-    position: relative;
+    position: sticky; /* Cambiado a sticky */
+    top: 0;
+    z-index: 1000;
 }
 
 .logo-nombre {

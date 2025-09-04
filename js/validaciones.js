@@ -125,7 +125,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const rutInput = document.getElementById('rut');
     if (rutInput) {
         rutInput.addEventListener('input', function (e) {
-            let value = e.target.value.replace(/[^0-9kK]/g, '').toUpperCase(); // Solo números y K
+            let value = e.target.value.replace(/[^0-9kK]/g, '').toUpperCase(); 
             if (value.length > 1) {
                 e.target.value = value.slice(0, -1) + '-' + value.slice(-1);
             } else {

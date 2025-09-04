@@ -11,8 +11,10 @@ function getMenu(_id) {
         <div class="mynav">
             <ul class="nav nav-pills justify-content-center">
                 <li class="nav-item"><a class="nav-link" aria-current="page" href="index.html">Inicio</a></li>
+                <li class="nav-item"><a class="nav-link" href="../index.html#juegos">Juegos</a></li>
+                <li class="nav-item"><a class="nav-link" href="../index.html#reglas">Reglas</a></li>
                 <li class="nav-item"><a class="nav-link" href="#footer">Contactanos</a></li>
-            </ul>
+                </ul>
         </div>
 
         <div class="dropdown mylogin">

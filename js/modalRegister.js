@@ -31,7 +31,8 @@ function getModalRegister() {
 
                 <div class="mb-3">
                     <label for="rut" class="form-label">RUT/DNI</label>
-                    <input type="text" class="form-control" id="rut" placeholder="12345678-9">
+                    <input type="text" class="form-control" id="rut" placeholder="12345678-9" maxlength="10">
+                    <small class="form-text text-muted">Formato: 12345678-9 o 12345678-K</small>
                 </div>
 
                 <div class="mb-3">
@@ -59,4 +60,18 @@ function getModalRegister() {
             </div>
         </div> 
         </div>`;
+
+        setTimeout(() => {
+        const rutInput = document.getElementById('rut');
+        if (rutInput) {
+            rutInput.addEventListener('input', function (e) {
+                let value = e.target.value.replace(/[^0-9kK]/g, '').toUpperCase();
+                if (value.length > 1) {
+                    e.target.value = value.slice(0, -1) + '-' + value.slice(-1);
+                } else {
+                    e.target.value = value;
+                }
+            });
+        }
+    }, 0);
 }

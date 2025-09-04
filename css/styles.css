@@ -1,4 +1,22 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1 0 auto;
+    margin-top: 32px;
+}
+
 .myheader {
+    background-color: #2e2e2e79;
     display: flex;
     align-items: center;
     padding: 10px 20px;
@@ -51,12 +69,13 @@
 
 
 .carousel {
-    margin: 30px auto 0 auto;
+    margin: 30px auto 40px auto;
     background: rgba(0, 0, 0, 0.6);
     color: #fff !important;
-    width: 1000px;
-    max-width: 1000px;
-    height: 590px;
+    width: 90vw;         /* Ocupa el 90% del ancho de la ventana */
+    max-width: 1000px;   /* Máximo ancho opcional */
+    height: 50vw;        /* Alto proporcional al ancho de la ventana */
+    max-height: 590px;   /* Máximo alto opcional */
     display: block;
     border-radius: 16px;
     overflow: hidden;
@@ -95,18 +114,17 @@
     display: block;
 }
 
-.myfooter{
+.myfooter {
     background-color: #2e2e2e79;
     color: white;
     text-align: center;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    position: absolute;
-    height: fit-content;
     width: 100%;
     padding: 20px;
     z-index: 1000;
+    position: static; /* Quita absolute */
+    bottom: auto;
+    left: auto;
+    right: auto;
 }
 
 .myfooter p {
@@ -128,9 +146,25 @@
 }
 
 .avatar {
-  width: 40px;   /* tamaño */
+  width: 40px;
   height: 40px;
   border-radius: 50%;
   object-fit: cover;
   cursor: pointer;
+}
+
+.nav-pills .nav-link {
+    color: #fff !important;
+    background-color: transparent !important;
+    transition: background 0.2s, color 0.2s;
+}
+
+.nav-pills .nav-link:hover,
+.nav-pills .nav-link:focus {
+    background-color: #444a !important;
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+    color: #222 !important;
 }

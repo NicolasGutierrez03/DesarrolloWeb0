@@ -16,16 +16,16 @@ function getMenu(_id) {
                     <img class="foto-perfil" src="img/perfil.png" alt="desarrollador 2">
                     <p>Jordi Farias</p>
                     <p>Desarrollador Backend</p>
-                    <p>Email: <a href="mailto:jordi.farias@casino.com" class="contacto jordi">jordi.farias@casino.com</a></p>
+                    <p>Email: <a href="mailto:jordi.farias@casinoUDP.com" class="contacto jordi">jordi.farias@casinoUDP.com</a></p>
                 </div>
                 <div class="col-md-4">
                     <h5>Contactos</h5>
                     <ul class="list-unstyled">
-                        <li><a href="mailto:contacto@casino.com" class="text-white text-decoration-none">Email: contacto@casino.com</a></li>
+                        <li><a href="mailto:contacto@casinoUDP.com" class="text-white text-decoration-none">Email: contacto@casinoUDP.com</a></li>
                         <li><a href="tel:+1234567890" class="text-white text-decoration-none">Teléfono: +1 234 567 890</a></li>
-                        <li><a href="http://instagram.com/casinoUPD" class="text-white text-decoration-none">Instagram: @casino</a></li>
-                        <li><a href="http://twitter.com/casinoUPD" class="text-white text-decoration-none">Twitter: @casino</a></li>
-                        <li><a href="http://facebook.com/casinoUPD" class="text-white text-decoration-none">Facebook: @casino</a></li>
+                        <li><a href="http://instagram.com/casinoUPD" class="text-white text-decoration-none">Instagram: @casinoUPD</a></li>
+                        <li><a href="http://twitter.com/casinoUPD" class="text-white text-decoration-none">Twitter: @casinoUPD</a></li>
+                        <li><a href="http://facebook.com/casinoUPD" class="text-white text-decoration-none">Facebook: @casinoUPD</a></li>
                     </ul>
                 </div>
             </div>

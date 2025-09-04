@@ -21,11 +21,11 @@ function getMenu(_id) {
                 <div class="col-md-4">
                     <h5>Contactos</h5>
                     <ul class="list-unstyled">
-                        <li><a href="mailto:contacto@casinoUDP.com" class="text-white text-decoration-none">Email: contacto@casinoUDP.com</a></li>
-                        <li><a href="tel:+1234567890" class="text-white text-decoration-none">Teléfono: +1 234 567 890</a></li>
-                        <li><a href="http://instagram.com/casinoUPD" class="text-white text-decoration-none">Instagram: @casinoUPD</a></li>
-                        <li><a href="http://twitter.com/casinoUPD" class="text-white text-decoration-none">Twitter: @casinoUPD</a></li>
-                        <li><a href="http://facebook.com/casinoUPD" class="text-white text-decoration-none">Facebook: @casinoUPD</a></li>
+                        <li><a href="mailto:contacto@casinoUDP.com" class="text-white text-decoration-none" target="_blank">Email: contacto@casinoUDP.com</a></li>
+                        <li><a href="tel:+1234567890" class="text-white text-decoration-none" target="_blank">Teléfono: +1 234 567 890</a></li>
+                        <li><a href="http://instagram.com/casinoUPD" class="text-white text-decoration-none" target="_blank">Instagram: @casinoUPD</a></li>
+                        <li><a href="http://twitter.com/casinoUPD" class="text-white text-decoration-none" target="_blank">Twitter: @casinoUPD</a></li>
+                        <li><a href="http://facebook.com/casinoUPD" class="text-white text-decoration-none" target="_blank">Facebook: @casinoUPD</a></li>
                     </ul>
                 </div>
             </div>

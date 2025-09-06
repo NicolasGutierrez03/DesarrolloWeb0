@@ -12,14 +12,26 @@
 
     <header id="menuPrincipal" class="myheader"></header>
 
-    <main>
+    <section class="hero-section">
+        <div></div>
+        <div class="eslogan text-center">
+            <h1>Casino UDP</h1>
+            <h2>El mejor entretenimiento para la vida moderna</h2>
+            <h4>!!Con tu primer deposito ganas un 5% extra¡¡</h4>
+        </div>
+        <button class="scroll-arrow" onclick="document.getElementById('juegos-anchor').scrollIntoView({behavior: 'smooth', block: 'start'});">
+            <span>&#8595;</span>
+        </button>
+    </section>
+    <div style="height:70px;"></div>
+
+    <main class="bg-white">
         <div id="modalslogin"></div>         
         <div id="modalsRegister"></div>
 
-        <div class="eslogan">
-            <h1>El mejor entretenimiento para la vida moderna</h1>
-            <h2>con tu primer deposito ganas un 5% extra</h2>
-        </div>
+        <div id="juegos-anchor"></div>
+
+        <h2 class="text-center mb-4 titulo-seccion" id="titulo-juegos">Juegos</h2>
 
         <div id="juegos" class="juegos">
             <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" data-bs-interval="15000">
@@ -73,24 +85,87 @@
         </div>
 
         <div id="reglas" class="reglas">
-            <h3  class="text-center my-4">Reglas del Casino</h3>
+            <div id="reglas-anchor"></div>
+            <h3 class="text-center titulo-seccion">Reglas del Casino</h3>
             <div class="container">
+                <h5 class="mt-4">Registro de usuario</h5>
                 <ul>
-                    <li>Ser mayor de 18 años para participar.</li>
-                    <li>Jugar de manera responsable y establecer límites de gasto.</li>
-                    <li>Respetar las decisiones del crupier y las reglas del juego.</li>
-                    <li>No se permite el uso de dispositivos electrónicos durante el juego.</li>
-                    <li>El casino no se hace responsable de pérdidas financieras.</li>
-                    <li>Prohibido el acceso a personas bajo la influencia de alcohol o drogas.</li>
-                    <li>El incumplimiento de las reglas puede resultar en la expulsión del casino.</li>
+                    <li>Solo pueden jugar personas mayores de 18 años (o la edad legal en su país).</li>
+                    <li>Es obligatorio registrarse con datos reales y verificables.</li>
+                </ul>
+
+                <h5 class="mt-4">Depósitos y retiros</h5>
+                <ul>
+                    <li>Los métodos de pago disponibles incluyen tarjetas, transferencias y monederos electrónicos.</li>
+                    <li>Los retiros se realizan preferentemente por el mismo método usado en el depósito.</li>
+                    <li>Pueden aplicarse límites mínimos y máximos en cada transacción.</li>
+                </ul>
+
+                <h5 class="mt-4">Bonos y promociones</h5>
+                <ul>
+                    <li>Los bonos están sujetos a términos y condiciones.</li>
+                    <li>Es posible que exista un requisito de apuesta (wagering) antes de retirar ganancias obtenidas con bonos.</li>
+                </ul>
+
+                <h5 class="mt-4">Juegos disponibles</h5>
+                <ul>
+                    <li>El casino ofrece juegos de mesa, tragamonedas y casino en vivo.</li>
+                    <li>Cada juego tiene sus propias reglas específicas.</li>
+                </ul>
+
+                <h5 class="mt-4">Juego responsable</h5>
+                <ul>
+                    <li>Los usuarios pueden establecer límites de depósito y apuestas.</li>
+                    <li>El casino ofrece herramientas de autoexclusión en caso de ser necesarias.</li>
+                </ul>
+
+                <h5 class="mt-4">Seguridad y legalidad</h5>
+                <ul>
+                    <li>El casino opera bajo licencia oficial, garantizando la seguridad de datos y transacciones.</li>
+                    <li>Todos los juegos funcionan con sistemas de generación aleatoria certificados (RNG).</li>
                 </ul>
             </div>
-            <h3 class="text-center my-4">Reglas de la ruleta</h3>
+
+            <h3 class="text-center titulo-seccion">Reglas de la ruleta</h3>
             <div class="container">
+                <h5 class="mt-4">Características principales</h5>
                 <ul>
-                    <li>La ruleta es un juego de azar donde los jugadores apuestan al número o grupo de números donde creen que caerá la bola.</li>
-                    <li>El crupier hace girar la ruleta en una dirección y lanza la bola en la dirección opuesta.</li>
-                    <li>Los jugadores pueden hacer diferentes tipos de apuestas, como apostar a un solo número, a un color
+                    <li>La ruleta europea tiene 37 casillas: los números del 1 al 36 y un solo 0 (verde).</li>
+                    <li>Los números se alternan en colores rojo y negro, salvo el 0, que siempre es verde.</li>
+                    <li>El objetivo es predecir en qué número o grupo de números caerá la bola después de girar la ruleta.</li>
+                </ul>
+
+                <h5 class="mt-4">Tipos de apuestas</h5>
+                <strong>1. Apuestas internas (Inside bets)</strong>
+                <ul>
+                    <li><b>Pleno:</b> apostar a un solo número (paga 35:1).</li>
+                    <li><b>Caballo:</b> dos números contiguos (paga 17:1).</li>
+                    <li><b>Calle:</b> tres números en fila (paga 11:1).</li>
+                    <li><b>Cuadro (o esquina):</b> cuatro números en un mismo cuadrado (paga 8:1).</li>
+                    <li><b>Seisena:</b> seis números (dos filas de tres) (paga 5:1).</li>
+                </ul>
+                <strong>2. Apuestas externas (Outside bets)</strong>
+                <ul>
+                    <li><b>Rojo o Negro</b> (paga 1:1).</li>
+                    <li><b>Par o Impar</b> (paga 1:1).</li>
+                    <li><b>Falta (1–18) o Pasa (19–36)</b> (paga 1:1).</li>
+                    <li><b>Docenas</b> (1–12, 13–24, 25–36) (paga 2:1).</li>
+                    <li><b>Columnas</b> (una de las 3 columnas verticales de 12 números) (paga 2:1).</li>
+                </ul>
+
+                <h5 class="mt-4">📖 Reglas básicas del juego</h5>
+                <ul>
+                    <li>Los jugadores colocan sus fichas en el tapete de apuestas.</li>
+                    <li>El crupier (o el sistema, en casinos online) hace girar la ruleta y lanza la bola.</li>
+                    <li>Se cierran las apuestas cuando el crupier anuncia “no va más”.</li>
+                    <li>La bola se detiene en una casilla numerada y de color.</li>
+                    <li>Se paga a los ganadores según la tabla de pagos y se retiran las apuestas perdedoras.</li>
+                </ul>
+
+                <h5 class="mt-4">Ventaja de la casa</h5>
+                <ul>
+                    <li>En la ruleta europea, al haber un solo 0, la ventaja de la casa es de 2,7%, más baja que en la ruleta americana (que tiene 0 y 00).</li>
+                </ul>
             </div>
         </div>
 

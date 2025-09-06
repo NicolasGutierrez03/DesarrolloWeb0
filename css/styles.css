@@ -1,3 +1,7 @@
+:root {
+  --nav-offset: 100px;
+}
+
 html, body {
     height: 100%;
     margin: 0;
@@ -12,17 +16,18 @@ body {
 
 main {
     flex: 1 0 auto;
-    margin-top: 32px;
 }
 
 .myheader {
-    background-color: #2e2e2e79;
+    background-color: #2e2e2ecc;
     display: flex;
     align-items: center;
     padding: 10px 20px;
-    position: sticky; /* Cambiado a sticky */
+    position: fixed;
     top: 0;
-    z-index: 1000;
+    z-index: 2000;
+    width: 100%;
+    height: 70px;
 }
 
 .logo-nombre {
@@ -67,6 +72,8 @@ main {
 .nombre {
     font-size: 24px;
     font-weight: bold;
+    color: #fff;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.7);
 }
 
 
@@ -74,10 +81,10 @@ main {
     margin: 30px auto 40px auto;
     background: rgba(0, 0, 0, 0.6);
     color: #fff !important;
-    width: 90vw;         /* Ocupa el 90% del ancho de la ventana */
-    max-width: 1000px;   /* Máximo ancho opcional */
-    height: 50vw;        /* Alto proporcional al ancho de la ventana */
-    max-height: 590px;   /* Máximo alto opcional */
+    width: 90vw;
+    max-width: 1000px;
+    height: 50vw;
+    max-height: 590px;
     display: block;
     border-radius: 16px;
     overflow: hidden;
@@ -123,7 +130,7 @@ main {
     width: 100%;
     padding: 20px;
     z-index: 1000;
-    position: static; /* Quita absolute */
+    position: static;
     bottom: auto;
     left: auto;
     right: auto;
@@ -169,4 +176,69 @@ main {
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
     color: #222 !important;
+}
+
+.eslogan {
+    color: #fff;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.7);
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.hero-section {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100vh;
+    background: 
+        linear-gradient(to bottom, rgba(0,0,0,0.5) 60%, rgba(0,0,0,0.8) 100%),
+        url('../img/ruleta-casino-fondo.jpg') center center/cover no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 40px;
+    z-index: 1;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.hero-section h1{
+    color: goldenrod;
+}
+
+.scroll-arrow {
+    background: rgba(255,255,255,0.8);
+    border: none;
+    border-radius: 50%;
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: #222;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+    margin-bottom: 16px;
+}
+
+.scroll-arrow:hover {
+    background: #ffffff;
+    transform: translateY(6px) scale(1.1);
+}
+
+.titulo-seccion {
+  margin-top: 100px;
+}
+
+#reglas {
+  margin-bottom: 60px;
+}
+
+#reglas-anchor {
+  position: relative;
+  scroll-margin-top: var(--nav-offset);
 }

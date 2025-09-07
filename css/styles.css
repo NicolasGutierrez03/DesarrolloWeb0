@@ -12,6 +12,11 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    background: linear-gradient(135deg, #232946 0%, #16161a 100%);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #fff;
 }
 
 main {
@@ -125,7 +130,7 @@ main {
 }
 
 .myfooter {
-    background-color: #2e2e2ecc;
+    background-color: rgba(46, 46, 46, 0.25);
     color: white;
     text-align: center;
     width: 100%;
@@ -135,11 +140,67 @@ main {
     bottom: auto;
     left: auto;
     right: auto;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
 }
 
 .myfooter p {
     margin: 0; 
     line-height: normal; 
+}
+
+.container-perfil {
+    margin-left: 32px;
+    margin-right: 32px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.container-perfil .card-body,
+.container-perfil .card-title,
+.container-perfil .card-text {
+    color: #fff !important;
+}
+
+.container-perfil .card-text.text-muted {
+    color: #eee !important;
+    opacity: 0.85;
+}
+
+.container-perfil .table,
+.container-perfil .table th,
+.container-perfil .table td {
+    background: rgba(46,46,46,0.25) !important;
+    color: #fff !important;
+    border-color: rgba(255,255,255,0.15) !important;
+}
+
+.container-perfil .card,
+.container-perfil .table,
+.container-perfil .modal-content,
+.container-perfil .form-control,
+.container-perfil .list-group-item,
+.container-perfil .nav-tabs,
+.container-perfil .nav-link,
+.container-perfil .tab-content,
+.container-perfil .alert {
+  background: rgba(46,46,46,0.25) !important;
+  color: #fff !important;
+  border-color: rgba(255,255,255,0.15) !important;
+}
+
+.container-perfil .form-control::placeholder {
+  color: #ccc !important;
+}
+
+.container-perfil .table td.saldo-deposito {
+    color: #4caf50 !important;
+    font-weight: bold !important;
+}
+
+.container-perfil .table td.saldo-perdida {
+    color: #e53935 !important;
+    font-weight: bold !important;
 }
 
 .foto-perfil {
@@ -161,6 +222,10 @@ main {
   border-radius: 50%;
   object-fit: cover;
   cursor: pointer;
+}
+
+.dropdown-toggle::after {
+  filter: brightness(0) invert(1);
 }
 
 .nav-pills .nav-link {
@@ -244,7 +309,7 @@ main {
 }
 
 .reglas-fondo {
-    background: #2e2e2ecc;
+    background: rgba(46, 46, 46, 0.25);
     border-radius: 20px;
     box-shadow: 0 4px 24px rgba(0,0,0,0.2);
     backdrop-filter: blur(8px);
@@ -364,6 +429,11 @@ main {
     color: #fff;
     font-size: 1.2rem;
 }
+.apuestas .columna {
+    background: linear-gradient(135deg, #1976d2 60%, #0d47a1 100%);
+    color: #fff;
+    font-size: 1.2rem;
+}
 
 .extras {
     display: flex;
@@ -411,4 +481,69 @@ main {
 .info li {
     margin-bottom: 6px;
     font-size: 1rem;
+}
+
+.extras .btn-rojo {
+    background: linear-gradient(135deg, #e53935 60%, #b71c1c 100%);
+    color: #fff;
+}
+.extras .btn-negro {
+    background: linear-gradient(135deg, #222 60%, #444 100%);
+    color: #fff;
+}
+.extras .btn-par {
+    background: linear-gradient(135deg, #64b5f6 60%, #1976d2 100%);
+    color: #fff;
+}
+.extras .btn-impar {
+    background: linear-gradient(135deg, #ffd54f 60%, #ffa000 100%);
+    color: #222;
+}
+.extras .btn-docena1 {
+    background: linear-gradient(135deg, #81c784 60%, #388e3c 100%);
+    color: #fff;
+}
+.extras .btn-docena2 {
+    background: linear-gradient(135deg, #ba68c8 60%, #7b1fa2 100%);
+    color: #fff;
+}
+.extras .btn-docena3 {
+    background: linear-gradient(135deg, #ff8a65 60%, #d84315 100%);
+    color: #fff;
+}
+
+.extras .btn-rojo:hover {
+    background: linear-gradient(135deg, #e53935 60%, #b71c1c 100%);
+    color: #fff;
+    transform: translateY(-2px) scale(1.07);
+}
+.extras .btn-negro:hover {
+    background: linear-gradient(135deg, #222 60%, #444 100%);
+    color: #fff;
+    transform: translateY(-2px) scale(1.07);
+}
+.extras .btn-par:hover {
+    background: linear-gradient(135deg, #64b5f6 60%, #1976d2 100%);
+    color: #fff;
+    transform: translateY(-2px) scale(1.07);
+}
+.extras .btn-impar:hover {
+    background: linear-gradient(135deg, #ffd54f 60%, #ffa000 100%);
+    color: #222;
+    transform: translateY(-2px) scale(1.07);
+}
+.extras .btn-docena1:hover {
+    background: linear-gradient(135deg, #81c784 60%, #388e3c 100%);
+    color: #fff;
+    transform: translateY(-2px) scale(1.07);
+}
+.extras .btn-docena2:hover {
+    background: linear-gradient(135deg, #ba68c8 60%, #7b1fa2 100%);
+    color: #fff;
+    transform: translateY(-2px) scale(1.07);
+}
+.extras .btn-docena3:hover {
+    background: linear-gradient(135deg, #ff8a65 60%, #d84315 100%);
+    color: #fff;
+    transform: translateY(-2px) scale(1.07);
 }

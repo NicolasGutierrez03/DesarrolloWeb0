@@ -30,7 +30,7 @@ function getModalRegister() {
                 </div>
 
                 <div class="mb-3">
-                    <label for="rut" class="form-label">RUT/DNI</label>
+                    <label for="rut" class="form-label">RUT</label>
                     <input type="text" class="form-control" id="rut" placeholder="12345678-9" maxlength="10">
                     <small class="form-text text-muted">Formato: 12345678-9 o 12345678-K</small>
                 </div>

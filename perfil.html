@@ -13,115 +13,176 @@
     <header id="menuPrincipal" class="myheader"></header>
 
     <main>
-        <div id="modalslogin"></div>         
+        <div id="modalslogin"></div>
         <div id="modalsRegister"></div>
 
         <div class="container">
-            <div class="row"> 
+            <div class="row">
 
                 <div class="col-md-4">
                     <div class="card text-center">
                         <div class="card-body">
                             <img src="img/perfil.png" class="foto-perfil" alt="Foto de Perfil">
-                            <h5 class="card-title">Nombre de Usuario</h5>
+                            <h4 class="card-title">Nombre de Usuario</h4>
                             <p class="card-text text-muted">usuario@email.com</p>
-                            <button class="btn btn-primary">Editar Foto</button>
+                            <p class="card-text text-muted">rut: 12345678-9</p>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#subirFotoModal">Subir Foto de Perfil</button>
                         </div>
                     </div>
                 </div>
 
                 <div class="col-md-8">
+                    <h2>Saldo actual</h2>
                     <nav>
                         <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                            <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-movimientos" aria-selected="true">movimientos</button>
-                            <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-ingresar" aria-selected="false">ingresar dinero</button>
-                            <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-retiro" aria-selected="false">retirar dinero</button>
-                            <button class="nav-link" id="nav-disabled-tab" data-bs-toggle="tab" data-bs-target="#nav-disabled" type="button" role="tab" aria-controls="nav-saldo" aria-selected="false" disabled>saldo acutual</button>
+                            <button class="nav-link active" id="nav-movimientos-tab" data-bs-toggle="tab"
+                                data-bs-target="#nav-movimientos" type="button" role="tab" aria-controls="nav-movimientos"
+                                aria-selected="true">Movimientos</button>
+                            <button class="nav-link" id="nav-ingresar-tab" data-bs-toggle="tab"
+                                data-bs-target="#nav-ingresar" type="button" role="tab" aria-controls="nav-ingresar"
+                                aria-selected="false">Ingresar dinero</button>
+                            <button class="nav-link" id="nav-retiro-tab" data-bs-toggle="tab"
+                                data-bs-target="#nav-retiro" type="button" role="tab" aria-controls="nav-retiro"
+                                aria-selected="false">Retirar dinero</button>
+                            <button class="nav-link" type="button" data-bs-toggle="modal" data-bs-target="#contactSupportModal">Soporte</button>
                         </div>
                     </nav>
 
                     <div class="tab-content" id="nav-tabContent">
 
-                    <div class="tab-pane fade show active p-3" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
-                        <h5>Historial de Movimientos</h5>
-                        <table class="table table-striped">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Fecha</th>
-                                    <th scope="col">Tipo</th>
-                                    <th scope="col">Monto</th>
-                                    <th scope="col">Estado</th>
-                                </tr>
-                                
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>2025-08-30</td>
-                                    <td>Depósito</td>
-                                    <td class="text-success">+$50.00</td>
-                                    <td>Completado</td>
-                                </tr>
-                                <tr>
-                                    <td>2025-08-29</td>
-                                    <td>Apuesta Ruleta</td>
-                                    <td class="text-danger">-$5.00</td>
-                                    <td>Perdida</td>
-                                </tr>
-                                <tr>
-                                    <td>2025-08-28</td>
-                                    <td>Retiro</td>
-                                    <td class="text-danger">-$20.00</td>
-                                    <td>Procesando</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                        <div class="tab-pane fade show active p-3" id="nav-movimientos" role="tabpanel"
+                            aria-labelledby="nav-movimientos-tab" tabindex="0">
+                            <h5>Historial de Movimientos</h5>
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Fecha</th>
+                                        <th scope="col">Tipo</th>
+                                        <th scope="col">Monto</th>
+                                        <th scope="col">Estado</th>
+                                    </tr>
 
-                    <div class="tab-pane fade p-3" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">
-                        <h5>Ingresar Fondos a tu Cuenta</h5>
-                        <form>
-                            <div class="mb-3">
-                                <label for="depositAmount" class="form-label">Monto a Ingresar (CLP)</label>
-                                <input type="number" class="form-control" id="depositAmount" placeholder="Ej: 10000">
-                            </div>
-                            <div class="mb-3">
-                                <label for="paymentMethod" class="form-label">Método de Pago</label>
-                                <select class="form-select" id="paymentMethod">
-                                    <option selected>Selecciona un método...</option>
-                                    <option value="1">Tarjeta de Crédito/Débito</option>
-                                    <option value="2">Transferencia Bancaria</option>
-                                    <option value="3">PayPal</option>
-                                </select>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Proceder al Pago</button>
-                        </form>
-                    </div>
-
-                    <div class="tab-pane fade p-3" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab" tabindex="0">
-                        <h5>Retirar Fondos</h5>
-                        <form>
-                            <div class="mb-3">
-                                <label for="withdrawAmount" class="form-label">Monto a Retirar (CLP)</label>
-                                <input type="number" class="form-control" id="withdrawAmount" placeholder="Ej: 5000">
-                            </div>
-                            <p class="form-text">El retiro se procesará a tu cuenta bancaria asociada.</p>
-                            <button type="submit" class="btn btn-success">Solicitar Retiro</button>
-                        </form>
-                    </div>
-
-                    <div class="tab-pane fade p-3" id="nav-disabled" role="tabpanel" aria-labelledby="nav-disabled-tab" tabindex="0">
-                        <div class="text-center">
-                            <h5>Tu Saldo Actual es:</h5>
-                            <h2 class="display-4 fw-bold text-success">$12,345</h2>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>2025-08-30</td>
+                                        <td>Depósito</td>
+                                        <td class="text-success">+$50.00</td>
+                                        <td>Completado</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2025-08-29</td>
+                                        <td>Apuesta Ruleta</td>
+                                        <td class="text-danger">-$5.00</td>
+                                        <td>Perdida</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2025-08-28</td>
+                                        <td>Retiro</td>
+                                        <td class="text-danger">-$20.00</td>
+                                        <td>Procesando</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
-                    </div>
+
+                        <div class="tab-pane fade p-3" id="nav-ingresar" role="tabpanel"
+                            aria-labelledby="nav-ingresar-tab" tabindex="0">
+                            <h5>Ingresar Fondos a tu Cuenta</h5>
+                            <form onsubmit="return validarDeposito(this)">
+                                <div id="msgAlertaDeposito" class="alert alert-danger d-none" role="alert"></div>
+                                <div class="mb-3">
+                                    <label for="depositAmount" class="form-label">Monto a Ingresar (CLP)</label>
+                                    <input type="text" class="form-control" id="depositAmount" placeholder="Ej: 10000">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="paymentMethod" class="form-label">Método de Pago</label>
+                                    <select class="form-select" id="paymentMethod">
+                                        <option value="">Selecciona un método...</option>
+                                        <option value="1">Tarjeta de Crédito/Débito</option>
+                                        <option value="2">Transferencia Bancaria</option>
+                                        <option value="3">PayPal</option>
+                                    </select>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Proceder al Pago</button>
+                            </form>
+                        </div>
+
+                        <div class="tab-pane fade p-3" id="nav-retiro" role="tabpanel"
+                            aria-labelledby="nav-retiro-tab" tabindex="0">
+                            <h5>Retirar Fondos</h5>
+                            <form onsubmit="return validarRetiro(this)">
+                                <div id="msgAlertaRetiro" class="alert alert-danger d-none" role="alert"></div>
+                                <div class="mb-3">
+                                    <label for="withdrawAmount" class="form-label">Monto a Retirar (CLP)</label>
+                                    <input type="text" class="form-control" id="withdrawAmount" placeholder="Ej: 5000">
+                                </div>
+                                <p class="form-text">El retiro se procesará a tu cuenta bancaria asociada.</p>
+                                <button type="submit" class="btn btn-success">Solicitar Retiro</button>
+                            </form>
+                        </div>
 
                     </div>
                 </div>
-
             </div>
         </div>
     </main>
+
+    <div class="modal fade" id="contactSupportModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="contactSupportModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="contactSupportModalLabel">Contactar a Soporte</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3">
+                    <label for="supportEmail" class="form-label">Tu correo electrónico</label>
+                    <input type="email" class="form-control" id="supportEmail" placeholder="tu@email.com">
+                </div>
+                    <div class="mb-3">
+                    <label for="supportMessage" class="form-label">Describe tu problema</label>
+                    <textarea class="form-control" id="supportMessage" rows="4"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary">Enviar Mensaje</button>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+
+    <div class="modal fade" id="subirFotoModal" tabindex="-1" aria-labelledby="subirFotoModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="subirFotoModalLabel">Subir Foto de Perfil</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Selecciona una imagen para tu perfil. Se recomienda una imagen cuadrada.</p>
+                    <input type="file" id="fileInput" class="form-control" accept="image/*">
+                    <div class="text-center mt-3">
+                        <img id="imagePreview" src="" alt="Vista previa de la imagen" style="max-width: 100%; max-height: 200px; display: none;">
+                    </div>
+                    <ul id="imageSpecs" class="list-group mt-3" style="display: none;">
+                        <li class="list-group-item" id="specName"></li>
+                        <li class="list-group-item" id="specSize"></li>
+                        <li class="list-group-item" id="specType"></li>
+                        <li class="list-group-item" id="specDimensions"></li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary">Guardar Foto</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <footer id="footer" class="myfooter"></footer>
 

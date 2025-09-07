@@ -15,22 +15,130 @@
         <div id="modalslogin"></div>         
         <div id="modalsRegister"></div>
 
-        <div class="ruleta-container">
-            <h1 class="text-center mb-4">Ruleta Europea</h1>
-            <div class="ruleta-game">
-                <div class="ruleta-wheel">
-                    <img src="img/ruleta-wheel.png" alt="Ruleta Wheel" class="wheel-image">
-                    <div id="ball" class="ball"></div>
+        <section>
+            <div class="ruleta-container">
+                <h2 class="text-center mb-4">Mesa de Apuestas</h2>
+                <div class="rueda">
+                    <img src="/img/Ruleta-mesa.jpeg" alt="Ruleta Europea">
                 </div>
-                <div class="betting-area">
-                    <h2>Área de Apuestas</h2>
-                    <div class="bet-options">
-                        <button class="bet-button" data-bet="red">Rojo</button>
-                        <button class="bet-button" data-bet="black">Negro</button>
+
+                <div class="tablero">
+                    <table class="apuestas">
+                        <tr>
+                        <td rowspan="3" class="cero">0</td>
+
+                        <td class="rojo">3</td>
+                        <td class="negro">6</td>
+                        <td class="rojo">9</td>
+                        <td class="rojo">12</td>
+                        <td class="negro">15</td>
+                        <td class="rojo">18</td>
+                        <td class="rojo">21</td>
+                        <td class="negro">24</td>
+                        <td class="rojo">27</td>
+                        <td class="negro">30</td>
+                        <td class="rojo">33</td>
+                        <td class="negro">36</td>
+                        </tr>
+                        <tr>
+
+                        <td class="negro">2</td>
+                        <td class="rojo">5</td>
+                        <td class="negro">8</td>
+                        <td class="negro">11</td>
+                        <td class="rojo">14</td>
+                        <td class="negro">17</td>
+                        <td class="negro">20</td>
+                        <td class="rojo">23</td>
+                        <td class="negro">26</td>
+                        <td class="rojo">29</td>
+                        <td class="negro">32</td>
+                        <td class="rojo">35</td>
+                        </tr>
+                        <tr>
+
+                        <td class="rojo">1</td>
+                        <td class="negro">4</td>
+                        <td class="rojo">7</td>
+                        <td class="negro">10</td>
+                        <td class="negro">13</td>
+                        <td class="rojo">16</td>
+                        <td class="rojo">19</td>
+                        <td class="negro">22</td>
+                        <td class="rojo">25</td>
+                        <td class="negro">28</td>
+                        <td class="negro">31</td>
+                        <td class="rojo">34</td>
+                        </tr>
+                    </table>
+
+                    <div class="extras">
+                        <button>Rojo</button>
+                        <button>Negro</button>
+                        <button>Par</button>
+                        <button>Impar</button>
+                        <button>1ª Docena (1–12)</button>
+                        <button>2ª Docena (13–24)</button>
+                        <button>3ª Docena (25–36)</button>
                     </div>
                 </div>
+
+                <div class="info">
+                <h2>Estado del juego</h2>
+                <ul>
+                    <li>Recibiendo apuestas...</li>
+                    <li>Saldo: $1000</li>
+                    <li>Últimos ganadores: 12 (rojo), 7 (rojo), 20 (negro), 0 (verde), 33 (negro)</li>
+                </ul>
+                </div>
+            </div>
+        </section>
+
+        <div id="reglas" class="reglas reglas-fondo">
+
+            <h3 class="text-center titulo-seccion">Reglas de la ruleta</h3>
+            <div class="container">
+                <h5 class="mt-4">Características principales</h5>
+                <ul>
+                    <li>La ruleta europea tiene 37 casillas: los números del 1 al 36 y un solo 0 (verde).</li>
+                    <li>Los números se alternan en colores rojo y negro, salvo el 0, que siempre es verde.</li>
+                    <li>El objetivo es predecir en qué número o grupo de números caerá la bola después de girar la ruleta.</li>
+                </ul>
+
+                <h5 class="mt-4">Tipos de apuestas</h5>
+                <strong>1. Apuestas internas (Inside bets)</strong>
+                <ul>
+                    <li><b>Pleno:</b> apostar a un solo número (paga 35:1).</li>
+                    <li><b>Caballo:</b> dos números contiguos (paga 17:1).</li>
+                    <li><b>Calle:</b> tres números en fila (paga 11:1).</li>
+                    <li><b>Cuadro (o esquina):</b> cuatro números en un mismo cuadrado (paga 8:1).</li>
+                    <li><b>Seisena:</b> seis números (dos filas de tres) (paga 5:1).</li>
+                </ul>
+                <strong>2. Apuestas externas (Outside bets)</strong>
+                <ul>
+                    <li><b>Rojo o Negro</b> (paga 1:1).</li>
+                    <li><b>Par o Impar</b> (paga 1:1).</li>
+                    <li><b>Falta (1–18) o Pasa (19–36)</b> (paga 1:1).</li>
+                    <li><b>Docenas</b> (1–12, 13–24, 25–36) (paga 2:1).</li>
+                    <li><b>Columnas</b> (una de las 3 columnas verticales de 12 números) (paga 2:1).</li>
+                </ul>
+
+                <h5 class="mt-4">Reglas básicas del juego</h5>
+                <ul>
+                    <li>Los jugadores colocan sus fichas en el tapete de apuestas.</li>
+                    <li>El crupier (o el sistema, en casinos online) hace girar la ruleta y lanza la bola.</li>
+                    <li>Se cierran las apuestas cuando el crupier anuncia “no va más”.</li>
+                    <li>La bola se detiene en una casilla numerada y de color.</li>
+                    <li>Se paga a los ganadores según la tabla de pagos y se retiran las apuestas perdedoras.</li>
+                </ul>
+
+                <h5 class="mt-4">Ventaja de la casa</h5>
+                <ul>
+                    <li>En la ruleta europea, al haber un solo 0, la ventaja de la casa es de 2,7%, más baja que en la ruleta americana (que tiene 0 y 00).</li>
+                </ul>
             </div>
         </div>
+
     </main>
     <footer id="footer" class="myfooter text-white py-4"></footer>
 

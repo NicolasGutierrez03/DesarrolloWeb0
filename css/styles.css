@@ -16,6 +16,7 @@ body {
 
 main {
     flex: 1 0 auto;
+    padding-top: 90px;
 }
 
 .myheader {
@@ -124,7 +125,7 @@ main {
 }
 
 .myfooter {
-    background-color: #2e2e2e79;
+    background-color: #2e2e2ecc;
     color: white;
     text-align: center;
     width: 100%;
@@ -234,11 +235,180 @@ main {
   margin-top: 100px;
 }
 
-#reglas {
-  margin-bottom: 60px;
+#reglas .titulo-seccion {
+  margin-top: 0 !important;
+}
+
+#reglas .separador-titulo {
+  margin-top: 40px !important;
+}
+
+.reglas-fondo {
+    background: #2e2e2ecc;
+    border-radius: 20px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.2);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 32px 24px;
+    margin: 0 auto 60px auto;
+    max-width: 900px;
+    color: #fff !important;
 }
 
 #reglas-anchor {
   position: relative;
   scroll-margin-top: var(--nav-offset);
+  margin-bottom: 60px;
+}
+
+.modal-dialog {
+  margin-top: 90px;
+}
+
+#loginModal .modal-dialog,
+#registerModal .modal-dialog {
+  margin-top: 90px;
+}
+
+.ruleta-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 40px auto;
+    padding: 32px 16px;
+    background: rgba(30,30,30,0.7);
+    border-radius: 24px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.2);
+    max-width: 1200px;
+}
+
+.ruleta-container > h2 {
+    flex-basis: 100%;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.rueda img {
+    width: 320px;
+    height: 320px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto 16px auto;
+    filter: drop-shadow(0 2px 12px #0008);
+    background: #222;
+    border-radius: 50%;
+    padding: 8px;
+}
+
+@media (max-width: 900px) {
+  .ruleta-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .rueda {
+    margin-bottom: 24px;
+  }
+}
+
+.tablero {
+    min-width: 480px;
+    max-width: 100%;
+    background: rgba(44,44,44,0.85);
+    border-radius: 16px;
+    padding: 24px 16px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+    margin-bottom: 16px;
+    overflow-x: auto;
+}
+
+.apuestas {
+    border-collapse: separate;
+    border-spacing: 4px;
+    width: 100%;
+    margin-bottom: 18px;
+}
+
+.apuestas td {
+    width: 36px;
+    height: 36px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    border: 2px solid #fff3;
+    color: #fff;
+    background: #222c;
+    transition: transform 0.1s, box-shadow 0.1s;
+    cursor: pointer;
+    user-select: none;
+}
+.apuestas td:hover {
+    transform: scale(1.08);
+    box-shadow: 0 2px 8px #0006;
+    border-color: #ffd700;
+}
+
+.apuestas .rojo {
+    background: linear-gradient(135deg, #c00 60%, #900 100%);
+    color: #fff;
+}
+.apuestas .negro {
+    background: linear-gradient(135deg, #222 60%, #444 100%);
+    color: #fff;
+}
+.apuestas .cero {
+    background: linear-gradient(135deg, #0c5 60%, #0a3 100%);
+    color: #fff;
+    font-size: 1.2rem;
+}
+
+.extras {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 12px;
+    justify-content: center;
+}
+.extras button {
+    background: linear-gradient(135deg, #ffd700 60%, #ffb300 100%);
+    color: #222;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 18px;
+    font-weight: bold;
+    font-size: 1rem;
+    box-shadow: 0 2px 8px #0003;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+}
+.extras button:hover {
+    background: linear-gradient(135deg, #fffbe0 60%, #ffd700 100%);
+    transform: translateY(-2px) scale(1.07);
+}
+
+.info {
+    background: rgba(30,30,30,0.6);
+    border-radius: 12px;
+    color: #fff;
+    padding: 18px 16px;
+    margin-top: 16px;
+    min-width: 220px;
+    max-width: 320px;
+    box-shadow: 0 2px 8px #0002;
+}
+.info h2 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #ffd700;
+}
+.info ul {
+    padding-left: 18px;
+    margin-bottom: 0;
+}
+.info li {
+    margin-bottom: 6px;
+    font-size: 1rem;
 }

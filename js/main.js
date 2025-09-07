@@ -4,7 +4,8 @@ const scripts = [
     "js/validaciones.js",
     "js/footer.js",
     "js/modalLogin.js",
-    "js/modalRegister.js"
+    "js/modalRegister.js",
+    "js/mostrarImagenSelect.js",
 ];
 
 scripts.forEach(src => {

@@ -14,6 +14,7 @@ function getMenu(_id) {
                 <li class="nav-item"><a class="nav-link" href="../index.html#juegos-anchor">Juegos</a></li>
                 <li class="nav-item"><a class="nav-link" href="../index.html#reglas-anchor">Reglas</a></li>
                 <li class="nav-item"><a class="nav-link" href="#footer">Contactanos</a></li>
+                <li class="nav-item"><a class="nav-link" href="Objetivos.html">Información</a></li>
                 </ul>
         </div>
 

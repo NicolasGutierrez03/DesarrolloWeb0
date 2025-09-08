@@ -547,3 +547,90 @@ main {
     color: #fff;
     transform: translateY(-2px) scale(1.07);
 }
+
+#paymentMethod.form-select {
+    background: rgba(46, 46, 46, 0.5) !important;
+    color: #fff !important;
+    border-color: rgba(255,255,255,0.15) !important;
+}
+
+#paymentMethod.form-select option {
+    background: #232946;
+    color: #fff;
+}
+
+#loginModal .modal-content,
+#registerModal .modal-content {
+    background: rgba(46, 46, 46, 0.85) !important;
+    color: #fff !important;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: none;
+}
+
+#contactSupportModal .modal-content {
+    background: rgba(46, 46, 46, 0.85) !important;
+    color: #fff !important;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: none;
+}
+
+#loginModal .modal-content label,
+#loginModal .modal-content,
+#registerModal .modal-content label,
+#registerModal .modal-content {
+    color: #fff !important;
+}
+
+#contactSupportModal .modal-content label,
+#contactSupportModal .modal-content {
+    color: #fff !important;
+}
+
+#loginModal .form-control,
+#registerModal .form-control {
+    background: rgba(46, 46, 46, 0.5) !important;
+    color: #fff !important;
+    border-color: rgba(255,255,255,0.15) !important;
+}
+
+#contactSupportModal .form-control {
+    background: rgba(46, 46, 46, 0.5) !important;
+    color: #fff !important;
+    border-color: rgba(255,255,255,0.15) !important;
+}
+
+#loginModal .form-control::placeholder,
+#registerModal .form-control::placeholder {
+    color: #ccc !important;
+}
+
+#contactSupportModal .form-control::placeholder {
+    color: #ccc !important;
+}
+
+#registerModal .form-text {
+    color: #fff !important;
+    opacity: 0.85;
+}
+
+.mylogin .dropdown-menu {
+    background: rgba(46, 46, 46, 0.85) !important;
+    color: #fff !important;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: none;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.4);
+}
+
+.mylogin .dropdown-menu .dropdown-item {
+    color: #fff !important;
+    text-shadow: 0 1px 4px #000a;
+}
+
+.mylogin .dropdown-menu .dropdown-item:hover,
+.mylogin .dropdown-menu .dropdown-item:focus {
+    background: rgba(30, 30, 30, 0.7) !important;
+    color: #ffffff !important;
+}

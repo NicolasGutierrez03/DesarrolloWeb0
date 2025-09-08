@@ -56,6 +56,8 @@ function validarRegistro(form) {
     const email = document.getElementById('registerEmail');
     const password = document.getElementById('registerPassword');
     const passwordConfirm = document.getElementById('registerPasswordConfirm');
+    const dob = document.getElementById('registerDob');
+
     let errores = 0;
     let mensajes = [];
 
@@ -67,6 +69,28 @@ function validarRegistro(form) {
         name.classList.remove('is-invalid');
         name.classList.add('is-valid');
     }
+
+    if (dob.value.trim() === '') {
+    dob.classList.add('is-invalid');
+    errores++;
+    mensajes.push('La fecha de nacimiento es obligatoria.');
+} else {
+    // Validar que tenga al menos 18 años
+    const fechaNacimiento = new Date(dob.value);
+    const hoy = new Date();
+    const edad = hoy.getFullYear() - fechaNacimiento.getFullYear();
+    const m = hoy.getMonth() - fechaNacimiento.getMonth();
+    const d = hoy.getDate() - fechaNacimiento.getDate();
+    let esMayor = edad > 18 || (edad === 18 && (m > 0 || (m === 0 && d >= 0)));
+    if (!esMayor) {
+        dob.classList.add('is-invalid');
+        errores++;
+        mensajes.push('Debes ser mayor de 18 años.');
+    } else {
+        dob.classList.remove('is-invalid');
+        dob.classList.add('is-valid');
+    }
+}
 
     if (rut.value.trim() === '') {
         rut.classList.add('is-invalid');

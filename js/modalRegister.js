@@ -25,6 +25,11 @@ function getModalRegister() {
                 </div>
 
                 <div class="mb-3">
+                    <label for="registerDob" class="form-label">Fecha de Nacimiento</label>
+                    <input type="date" class="form-control" id="registerDob">
+                </div>
+
+                <div class="mb-3">
                     <label for="registerEmail" class="form-label">Correo Electrónico</label>
                     <input type="email" class="form-control" id="registerEmail" placeholder="tu@correo.com">
                 </div>

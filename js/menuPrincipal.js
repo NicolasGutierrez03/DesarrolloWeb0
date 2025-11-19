@@ -11,10 +11,10 @@ function getMenu(_id) {
         <div class="mynav">
             <ul class="nav nav-pills justify-content-center">
                 <li class="nav-item"><a class="nav-link" aria-current="page" href="index.html">Inicio</a></li>
-                <li class="nav-item"><a class="nav-link" href="../index.html#juegos-anchor">Juegos</a></li>
-                <li class="nav-item"><a class="nav-link" href="../index.html#reglas-anchor">Reglas</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html#juegos-anchor">Juegos</a></li>
+                <li class="nav-item"><a class="nav-link" href="#reglas-anchor">Reglas</a></li>
                 <li class="nav-item"><a class="nav-link" href="#footer">Contactanos</a></li>
-                <li class="nav-item"><a class="nav-link" href="Objetivos.html">Información</a></li>
+                <li class="nav-item"><a class="nav-link" href="objetivos.html">Información</a></li>
                 </ul>
         </div>
 
@@ -26,7 +26,7 @@ function getMenu(_id) {
         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userMenu">
             <li><button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#loginModal">Iniciar sesión</button></li>
             <li><button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#registerModal">Registrar</button></li>
-            <li><a class="dropdown-item" href="Perfil.html">Mi perfil</a></li>
+            <li><a class="dropdown-item" href="perfil.html">Mi perfil</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#">Salir</a></li>
         </ul>

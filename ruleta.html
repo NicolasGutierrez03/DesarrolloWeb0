@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Casino UDP</title>
     <link rel="stylesheet" href="css/Bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="css/styles.css">
@@ -16,99 +16,135 @@
         <div id="modalsRegister"></div>
 
         <section>
-            <div class="ruleta-container">
-                <h2 class="text-center mb-4">Mesa de Apuestas</h2>
-                <div class="rueda">
-                    <img src="/img/Ruleta-mesa.jpeg" alt="Ruleta Europea">
-                </div>
+            <div class="content-row">
+        <!-- PANEL DE LA RULETA -->
+        <section class="wheel-panel">
+          <div class="wheel-title">Ruleta Europea</div>
 
-                <div class="tablero">
-                    <table class="apuestas">
-                        <tr>
-                        <td rowspan="3" class="cero">0</td>
-
-                        <td class="rojo">3</td>
-                        <td class="negro">6</td>
-                        <td class="rojo">9</td>
-                        <td class="negro">12</td>
-                        <td class="rojo">15</td>
-                        <td class="negro">18</td>
-                        <td class="rojo">21</td>
-                        <td class="negro">24</td>
-                        <td class="rojo">27</td>
-                        <td class="negro">30</td>
-                        <td class="rojo">33</td>
-                        <td class="negro">36</td>
-                        <td class="columna">3ª COL</td>
-                        </tr>
-                        <tr>
-
-                        <td class="negro">2</td>
-                        <td class="rojo">5</td>
-                        <td class="negro">8</td>
-                        <td class="rojo">11</td>
-                        <td class="negro">14</td>
-                        <td class="rojo">17</td>
-                        <td class="negro">20</td>
-                        <td class="rojo">23</td>
-                        <td class="negro">26</td>
-                        <td class="rojo">29</td>
-                        <td class="negro">32</td>
-                        <td class="rojo">35</td>
-                        <td class="columna">2ª COL</td>
-                        </tr>
-                        <tr>
-
-                        <td class="rojo">1</td>
-                        <td class="negro">4</td>
-                        <td class="rojo">7</td>
-                        <td class="negro">10</td>
-                        <td class="rojo">13</td>
-                        <td class="negro">16</td>
-                        <td class="rojo">19</td>
-                        <td class="negro">22</td>
-                        <td class="rojo">25</td>
-                        <td class="negro">28</td>
-                        <td class="rojo">31</td>
-                        <td class="negro">34</td>
-                        <td class="columna">1ª COL</td>
-                        </tr>
-                    </table>
-
-                    <div class="extras">
-                        <button class="btn-rojo">Rojo</button>
-                        <button class="btn-negro">Negro</button>
-                        <button class="btn-par">Par</button>
-                        <button class="btn-impar">Impar</button>
-                        <button class="btn-docena1">1ª Docena (1–12)</button>
-                        <button class="btn-docena2">2ª Docena (13–24)</button>
-                        <button class="btn-docena3">3ª Docena (25–36)</button>
-                        <button class="btn-negro">Apostar</button>
-                        <button class="btn-rojo">Girar</button>
-                    </div>
-
-                    <div class="extras">
-                        <button class="btn-rojo">Borrar apuestas</button>
-                        <button class="btn-rojo">Deshacer apuesta</button>
-                        <button class="btn-par">Reapuesta</button>
-                        <button class="btn-par">Doblar apuesta</button>
-                        <button class="btn-rojo">Bajo (1-18)</button>
-                        <button class="btn-rojo">Alto (19-36)</button>
-                    </div>
-                </div>
-
-                <div class="info">
-                <h2>Estado del juego</h2>
-                <ul>
-                    <li>Recibiendo apuestas...</li>
-                    <li>Saldo: $1000</li>
-                    <li>Últimos ganadores: 12 (rojo), 7 (rojo), 20 (negro), 0 (verde), 33 (negro)</li>
-                </ul>
-                </div>
+          <div class="wheel-outer" id="wheel-container">
+            <div class="wheel-track" id="wheel-track"></div>
+            <div class="wheel-inner">
+              <span id="wheel-number">?</span>
             </div>
+            <div class="wheel-pointer"></div>
+          </div>
+
+          <div class="wheel-meta">
+            <div class="badge-pill">
+              <span class="badge-pill-dot"></span>
+              <span>Saldo: <strong id="balance-value">1000</strong> créditos</span>
+            </div>
+            <span id="last-spin">Esperando primera tirada...</span>
+          </div>
         </section>
 
-        <div id="reglas" class="reglas reglas-fondo">
+        <!-- MESA / CONTROLES -->
+        <section class="bet-panel">
+          <!-- GRID PRINCIPAL -->
+          <div class="tablero">
+            <div class="bet-grid-wrapper">
+              <!-- 0 separado -->
+              <div class="zero-cell" data-type="number" data-value="0">0</div>
+
+              <!-- números en 12 columnas x 3 filas (orden: fila superior 3,6,9.. ; fila media 2,5,8.. ; fila inferior 1,4,7..) -->
+              <div class="numbers-grid" id="bet-grid">
+                <!-- fila superior -->
+                <div class="cell rojo" data-type="number" data-value="3">3</div>
+                <div class="cell negro" data-type="number" data-value="6">6</div>
+                <div class="cell rojo" data-type="number" data-value="9">9</div>
+                <div class="cell rojo" data-type="number" data-value="12">12</div>
+                <div class="cell negro" data-type="number" data-value="15">15</div>
+                <div class="cell rojo" data-type="number" data-value="18">18</div>
+                <div class="cell rojo" data-type="number" data-value="21">21</div>
+                <div class="cell negro" data-type="number" data-value="24">24</div>
+                <div class="cell rojo" data-type="number" data-value="27">27</div>
+                <div class="cell rojo" data-type="number" data-value="30">30</div>
+                <div class="cell negro" data-type="number" data-value="33">33</div>
+                <div class="cell rojo" data-type="number" data-value="36">36</div>
+
+                <!-- fila media -->
+                <div class="cell negro" data-type="number" data-value="2">2</div>
+                <div class="cell rojo" data-type="number" data-value="5">5</div>
+                <div class="cell negro" data-type="number" data-value="8">8</div>
+                <div class="cell negro" data-type="number" data-value="11">11</div>
+                <div class="cell rojo" data-type="number" data-value="14">14</div>
+                <div class="cell negro" data-type="number" data-value="17">17</div>
+                <div class="cell negro" data-type="number" data-value="20">20</div>
+                <div class="cell rojo" data-type="number" data-value="23">23</div>
+                <div class="cell negro" data-type="number" data-value="26">26</div>
+                <div class="cell negro" data-type="number" data-value="29">29</div>
+                <div class="cell rojo" data-type="number" data-value="32">32</div>
+                <div class="cell negro" data-type="number" data-value="35">35</div>
+
+                <!-- fila inferior -->
+                <div class="cell rojo" data-type="number" data-value="1">1</div>
+                <div class="cell negro" data-type="number" data-value="4">4</div>
+                <div class="cell rojo" data-type="number" data-value="7">7</div>
+                <div class="cell negro" data-type="number" data-value="10">10</div>
+                <div class="cell negro" data-type="number" data-value="13">13</div>
+                <div class="cell rojo" data-type="number" data-value="16">16</div>
+                <div class="cell rojo" data-type="number" data-value="19">19</div>
+                <div class="cell negro" data-type="number" data-value="22">22</div>
+                <div class="cell rojo" data-type="number" data-value="25">25</div>
+                <div class="cell negro" data-type="number" data-value="28">28</div>
+                <div class="cell negro" data-type="number" data-value="31">31</div>
+                <div class="cell rojo" data-type="number" data-value="34">34</div>
+              </div>
+            </div>
+            
+            <div class="extras"></div>
+            <div class="row-bets">
+              <div class="cell row-btn" data-type="row" data-value="1">COL 1</div>
+              <div class="cell row-btn" data-type="row" data-value="2">COL 2</div>
+              <div class="cell row-btn" data-type="row" data-value="3">COL 3</div>
+            </div>
+            <!-- BOTONES DE TIPO DE APUESTA -->
+              <div class="bet-actions-top">
+                <button class="chip-btn chip-red" data-bet="color" data-value="red">Rojo</button>
+                <button class="chip-btn chip-black" data-bet="color" data-value="black">Negro</button>
+                <button class="chip-btn chip-blue" data-bet="parity" data-value="even">Par</button>
+                <button class="chip-btn chip-yellow" data-bet="parity" data-value="odd">Impar</button>
+                <button class="chip-btn chip-green" data-bet="dozen" data-value="1">1ª Docena</button>
+                <button class="chip-btn chip-purple" data-bet="dozen" data-value="2">2ª Docena</button>
+                <button class="chip-btn chip-orange" data-bet="dozen" data-value="3">3ª Docena</button>
+                <button class="chip-btn chip-main" data-action="place">Apostar</button>
+                <button class="chip-btn chip-main" data-action="spin">Girar</button>
+                <button class="chip-btn chip-secondary" data-action="clear">Borrar apuestas</button>
+                <button class="chip-btn chip-secondary" data-action="undo">Deshacer apuesta</button>
+                <button class="chip-btn chip-secondary" data-action="double">Doblar apuesta</button>
+              </div>
+            </div>
+            <!-- FOOTER -->
+            <div class="bet-footer">
+              <div class="footer-left">
+                <span>Monto:</span>
+                <div class="footer-input">
+                  <input type="number" id="bet-amount" min="1" value="10" />
+                  <span>créditos</span>
+                </div>
+                <span>| Apuesta total: <strong id="total-bet">0</strong></span>
+              </div>
+
+              <div class="footer-right">
+                <button class="btn-secondary-ghost" id="btn-rebet">
+                  <span class="dot-red"></span>
+                  Reapuesta
+                </button>
+                <button class="btn-primary" id="spin-button">Girar Ruleta</button>
+              </div>
+            </div>
+
+            <div class="status-row">
+              <span><span class="status-label">Resultado:</span> <span id="result-text">—</span></span>
+              <span><span class="status-label">Mensaje:</span> <span id="message-text">Coloca tus fichas y gira.</span></span>
+            </div>
+          </div>
+
+        </section>
+        
+
+
+        <div id="reglas-anchor" class="reglas reglas-fondo">
 
             <h3 class="text-center titulo-seccion">Reglas de la ruleta</h3>
             <div class="container">
@@ -157,6 +193,6 @@
     <footer id="footer" class="myfooter text-white py-4"></footer>
 
     <script src="js/main.js"></script>
-
+    <script src="js/ruleta.js"></script>
 </body>
 </html>

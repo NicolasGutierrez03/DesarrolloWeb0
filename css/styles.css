@@ -1,5 +1,20 @@
 :root {
-  --nav-offset: 100px;
+  --ruleta-bg-main: #05081a;
+  --ruleta-bg-panel: #111726;
+  --ruleta-bg-panel-soft: #1b2333;
+  --ruleta-chip-red: #e53935;
+  --ruleta-chip-black: #212121;
+  --ruleta-chip-green: #1abc9c;
+  --ruleta-chip-blue: #2980b9;
+  --ruleta-chip-yellow: #f1c40f;
+  --ruleta-chip-purple: #9b59b6;
+  --ruleta-text-main: #f5f7ff;
+  --ruleta-text-muted: #a7b0d1;
+  --ruleta-border-soft: #262c3f;
+  --ruleta-shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.8);
+  --ruleta-radius-big: 18px;
+  --ruleta-radius-mid: 10px;
+  --ruleta-radius-small: 6px;
 }
 
 html, body {
@@ -483,71 +498,6 @@ main {
     font-size: 1rem;
 }
 
-.extras .btn-rojo {
-    background: linear-gradient(135deg, #e53935 60%, #b71c1c 100%);
-    color: #fff;
-}
-.extras .btn-negro {
-    background: linear-gradient(135deg, #222 60%, #444 100%);
-    color: #fff;
-}
-.extras .btn-par {
-    background: linear-gradient(135deg, #64b5f6 60%, #1976d2 100%);
-    color: #fff;
-}
-.extras .btn-impar {
-    background: linear-gradient(135deg, #ffd54f 60%, #ffa000 100%);
-    color: #222;
-}
-.extras .btn-docena1 {
-    background: linear-gradient(135deg, #81c784 60%, #388e3c 100%);
-    color: #fff;
-}
-.extras .btn-docena2 {
-    background: linear-gradient(135deg, #ba68c8 60%, #7b1fa2 100%);
-    color: #fff;
-}
-.extras .btn-docena3 {
-    background: linear-gradient(135deg, #ff8a65 60%, #d84315 100%);
-    color: #fff;
-}
-
-.extras .btn-rojo:hover {
-    background: linear-gradient(135deg, #e53935 60%, #b71c1c 100%);
-    color: #fff;
-    transform: translateY(-2px) scale(1.07);
-}
-.extras .btn-negro:hover {
-    background: linear-gradient(135deg, #222 60%, #444 100%);
-    color: #fff;
-    transform: translateY(-2px) scale(1.07);
-}
-.extras .btn-par:hover {
-    background: linear-gradient(135deg, #64b5f6 60%, #1976d2 100%);
-    color: #fff;
-    transform: translateY(-2px) scale(1.07);
-}
-.extras .btn-impar:hover {
-    background: linear-gradient(135deg, #ffd54f 60%, #ffa000 100%);
-    color: #222;
-    transform: translateY(-2px) scale(1.07);
-}
-.extras .btn-docena1:hover {
-    background: linear-gradient(135deg, #81c784 60%, #388e3c 100%);
-    color: #fff;
-    transform: translateY(-2px) scale(1.07);
-}
-.extras .btn-docena2:hover {
-    background: linear-gradient(135deg, #ba68c8 60%, #7b1fa2 100%);
-    color: #fff;
-    transform: translateY(-2px) scale(1.07);
-}
-.extras .btn-docena3:hover {
-    background: linear-gradient(135deg, #ff8a65 60%, #d84315 100%);
-    color: #fff;
-    transform: translateY(-2px) scale(1.07);
-}
-
 #paymentMethod.form-select {
     background: rgba(46, 46, 46, 0.5) !important;
     color: #fff !important;
@@ -633,4 +583,408 @@ main {
 .mylogin .dropdown-menu .dropdown-item:focus {
     background: rgba(30, 30, 30, 0.7) !important;
     color: #ffffff !important;
+}
+
+
+/* --- RUEDA --- */
+.table-wrapper { width: 100%; max-width: 1120px; padding: 24px; }
+.table-panel { background: radial-gradient(circle at top, #151b3c, #080c19 45%, #050712 100%); border-radius: 26px; padding: 32px; box-shadow: var(--shadow-soft); border: 1px solid rgba(255,255,255,0.05); }
+
+.table-header { text-align: center; margin-bottom: 24px; }
+.table-header h1 { font-size: 32px; letter-spacing: 0.06em; font-weight: 600; text-shadow: 0 0 18px rgba(0,0,0,0.8); }
+.table-header span { display: block; margin-top: 4px; font-size: 14px; color: var(--text-muted); letter-spacing: 0.12em; text-transform: uppercase; }
+
+.content-row {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* wheel */
+.wheel-panel { background: linear-gradient(145deg, #0c1021, #090c18); border-radius: var(--radius-big); padding: 26px 20px; border: 1px solid var(--border-soft); box-shadow: 0 10px 30px rgba(0,0,0,0.7); display:flex; flex-direction:column; align-items:center; min-height:340px;}
+.wheel-title { font-size: 14px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 10px; }
+
+.wheel-outer { width: 240px; height: 240px; border-radius: 50%; background: radial-gradient(circle at 30% 30%, #262c3f, #050712); display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden; box-shadow: 0 0 40px rgba(0,0,0,0.9); }
+.wheel-track { position:absolute; inset:0; border-radius:50%; background:
+  conic-gradient(#0f0 0deg 9.73deg,
+                 #000 9.73deg 19.46deg,
+                 #e53935 19.46deg 29.19deg,
+                 #000 29.19deg 38.92deg,
+                 #e53935 38.92deg 48.65deg,
+                 #000 48.65deg 58.38deg,
+                 #e53935 58.38deg 68.11deg,
+                 #000 68.11deg 77.84deg,
+                 #e53935 77.84deg 87.57deg,
+                 #000 87.57deg 97.3deg,
+                 #e53935 97.3deg 107.03deg,
+                 #000 107.03deg 116.76deg,
+                 #e53935 116.76deg 126.49deg,
+                 #000 126.49deg 136.22deg,
+                 #e53935 136.22deg 145.95deg,
+                 #000 145.95deg 155.68deg,
+                 #e53935 155.68deg 165.41deg,
+                 #000 165.41deg 175.14deg,
+                 #e53935 175.14deg 184.87deg,
+                 #000 184.87deg 194.6deg,
+                 #e53935 194.6deg 204.33deg,
+                 #000 204.33deg 214.06deg,
+                 #e53935 214.06deg 223.79deg,
+                 #000 223.79deg 233.52deg,
+                 #e53935 233.52deg 243.25deg,
+                 #000 243.25deg 252.98deg,
+                 #e53935 252.98deg 262.71deg,
+                 #000 262.71deg 272.44deg,
+                 #e53935 272.44deg 282.17deg,
+                 #000 282.17deg 291.9deg,
+                 #e53935 291.9deg 301.63deg,
+                 #000 301.63deg 311.36deg,
+                 #e53935 311.36deg 321.09deg,
+                 #000 321.09deg 330.82deg,
+                 #e53935 330.82deg 340.55deg,
+                 #000 340.55deg 350.28deg,
+                 #0f0 350.28deg 360deg);
+  filter: drop-shadow(0 0 26px rgba(0,0,0,0.9)); }
+
+.wheel-inner { position: relative; width:66%; height:66%; border-radius:50%; background: radial-gradient(circle at 30% 25%, #404761, #050712); display:flex; align-items:center; justify-content:center; box-shadow: inset 0 0 30px rgba(0,0,0,0.9); color:#fff; font-size:40px; font-weight:600; }
+
+.wheel-pointer { position: absolute; top: -18px; left: 50%; transform: translateX(-50%); width: 0; height: 0; border-left: 12px solid transparent; border-right: 12px solid transparent; border-bottom: 24px solid #ffd54f; filter: drop-shadow(0 0 6px rgba(0,0,0,0.85)); }
+
+.wheel-meta { margin-top: 14px; text-align: center; font-size: 13px; color: var(--text-muted); }
+.wheel-meta span { display:block; margin-top:4px; font-size:12px; }
+
+.badge-pill { display:inline-flex; align-items:center; gap:6px; padding:4px 10px; border-radius:999px; background: rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.06); }
+.badge-pill-dot { width:6px; height:6px; border-radius:999px; background:#4caf50; }
+
+/* --- MESA DE APUESTAS --- */
+.bet-panel { background: linear-gradient(145deg, #111726, #101520); border-radius: var(--radius-big); padding: 18px; border:1px solid var(--border-soft); box-shadow: 0 12px 36px rgba(0,0,0,0.8); display:flex; flex-direction:column; gap:10px; }
+.bet-grid-wrapper { 
+  display: grid;
+  grid-template-columns: 86px 1fr 86px; /* 0 | números | columna derecha */
+  gap: 12px;
+  align-items: center; /* centra verticalmente el "0" respecto a la grid */
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  position: relative; /* necesario para overlays six */
+}
+.bet-grid { display:grid; grid-template-columns: 70px repeat(12, 1fr) 76px; grid-auto-rows:40px; gap:6px; align-items:stretch; }
+
+/* cells */
+.cell { border-radius: var(--radius-small); display:flex; align-items:center; justify-content:center; font-size:14px; font-weight:600; cursor:pointer; box-shadow: 0 5px 10px rgba(0,0,0,0.55); user-select:none; transition: transform 0.08s, box-shadow 0.08s, filter 0.08s; border:1px solid rgba(255,255,255,0.09); }
+.cell:hover { transform: translateY(-1px); filter: brightness(1.06); box-shadow: 0 8px 16px rgba(0,0,0,0.7); }
+.cell:active { transform: translateY(1px) scale(0.98); box-shadow: 0 3px 6px rgba(0,0,0,0.75); }
+.cell.zero { 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(145deg,#19b66b,#0f9a53);
+  color: #fff;
+  font-weight: 800;
+  font-size: 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.55);
+  width: 86px;
+  /* calcula altura: 3 filas (48px) + 2 gaps (10px) -> ajustar si cambias filas/gap */
+  height: calc(3 * 48px + 2 * 10px);
+  cursor: pointer;
+}
+.cell.red { background: linear-gradient(145deg, #f44336, #c62828); }
+.cell.black { background: linear-gradient(145deg, #24242b, #101015); color:#fafafa; }
+.cell.col { background: linear-gradient(145deg, #1565c0, #0d47a1); font-size:12px; }
+
+.cell.selected { box-shadow: 0 0 0 2px #ffe082, 0 0 22px rgba(255,241,118,0.7); position:relative; }
+.cell.selected::after { content:""; position:absolute; width:18px; height:18px; border-radius:50%; border:2px solid #fffde7; box-shadow:0 0 8px rgba(0,0,0,0.8); background: radial-gradient(circle at 30% 25%, #ffe082, #ff9800); top:3px; right:3px; }
+
+/* actions row */
+.bet-actions-top { margin-top:10px; display:grid; grid-template-columns: repeat(12, minmax(0,1fr)); gap:8px; }
+.chip-btn { border-radius: var(--radius-mid); padding:10px 8px; font-size:13px; font-weight:600; border:none; cursor:pointer; color:#fff; text-shadow:0 1px 2px rgba(0,0,0,0.7); box-shadow:0 6px 16px rgba(0,0,0,0.8); transition: transform 0.08s, box-shadow 0.08s, filter 0.08s; white-space:nowrap; }
+.chip-btn:hover { transform: translateY(-1px); filter: brightness(1.03); box-shadow:0 9px 18px rgba(0,0,0,0.85); }
+.chip-btn:active { transform: translateY(1px) scale(0.98); box-shadow:0 3px 8px rgba(0,0,0,0.85); }
+
+.chip-red { background: var(--chip-red); }
+.chip-black { background: var(--chip-black); }
+.chip-blue { background: var(--chip-blue); }
+.chip-yellow { background: var(--chip-yellow); color:#202020; text-shadow:none; }
+.chip-green { background: var(--chip-green); color:#102018; text-shadow:none; }
+.chip-purple { background: var(--chip-purple); }
+.chip-orange { background:#e67e22; }
+.chip-main { background:#e53935; }
+.chip-secondary { background:#29b6f6; }
+
+/* footer */
+.bet-footer { margin-top:8px; display:flex; justify-content:space-between; align-items:center; gap:14px; font-size:13px; color:var(--text-muted); }
+.footer-left { display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+.footer-input { background:#101520; border-radius:999px; padding:6px 10px; display:inline-flex; align-items:center; gap:6px; border:1px solid rgba(255,255,255,0.06); }
+.footer-input input { width:70px; background:transparent; border:none; outline:none; color:var(--text-main); font-size:13px; text-align:right; }
+.footer-right { display:flex; align-items:center; gap:8px; }
+.btn-primary { padding:9px 16px; border-radius:999px; border:none; background: linear-gradient(145deg, #ff3b30, #ff1744); color:#fff; font-weight:600; font-size:13px; cursor:pointer; box-shadow:0 8px 20px rgba(0,0,0,0.9); text-transform:uppercase; letter-spacing:0.06em; transition: transform 0.08s, box-shadow 0.08s; }
+.btn-primary:disabled { opacity:0.5; cursor:not-allowed; box-shadow:none; transform:none; }
+.btn-primary:hover:not(:disabled) { transform: translateY(-1px); box-shadow: 0 10px 24px rgba(0,0,0,1); }
+.btn-secondary-ghost { padding:7px 12px; font-size:12px; border-radius:999px; border:1px solid rgba(255,255,255,0.16); background: rgba(255,255,255,0.02); color:var(--text-main); cursor:pointer; display:inline-flex; align-items:center; gap:6px; transition: background 0.08s, transform 0.08s; }
+.btn-secondary-ghost:hover { background: rgba(255,255,255,0.05); transform: translateY(-1px); }
+.dot-red { width:8px; height:8px; border-radius:50%; background:#ef5350; }
+
+/* status */
+.status-row { margin-top:10px; font-size:13px; display:flex; justify-content:space-between; gap:10px; color:var(--text-muted); }
+.status-label { color:#90caf9; }
+.status-win { color:#66bb6a; }
+.status-lose { color:#ef5350; }
+
+/* spin animation fallback */
+@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+@media (max-width:960px) {
+  .content-row { grid-template-columns: 1fr; }
+  .wheel-panel { order: -1; }
+}
+
+/* Ajustes visuales y de posicionamiento para la tabla .apuestas */
+.tablero { width:100%; max-width:1120px; margin:0 auto; }
+.tablero .apuestas {
+  border-collapse: separate;        /* permitir separación entre celdas */
+  border-spacing: 10px;             /* espacio entre "fichas" */
+  margin: 0;
+  width: 100%;
+  table-layout: fixed;              /* anchos previsibles */
+  background: transparent;
+}
+
+/* tamaño y apariencia de celdas */
+.tablero .apuestas td {
+  width: 56px;                      /* ancho de cada casilla (ajusta si quieres) */
+  height: 46px;                     /* alto de cada casilla */
+  padding: 6px;
+  text-align: center;
+  vertical-align: middle;
+  border-radius: 10px;
+  font-weight: 700;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.55);
+  transition: transform .08s, box-shadow .08s;
+  user-select: none;
+  border: 1px solid rgba(255,255,255,0.04);
+}
+
+/* colores */
+.tablero .apuestas td.rojo { background: linear-gradient(145deg,#f44336,#c62828); }
+.tablero .apuestas td.negro { background: linear-gradient(145deg,#24242b,#101015); color:#fff; }
+.tablero .apuestas td.cero { 
+  background: linear-gradient(145deg,#19b66b,#0f9a53);
+  width: 84px;                      /* 0 más ancho */
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 800;
+}
+
+/* columnas (3ª col a la derecha) */
+.tablero .apuestas td.columna {
+  background: linear-gradient(145deg,#1565c0,#0d47a1);
+  color: #fff;
+  width: 76px;                      /* ancho columna derecha */
+  font-size: 13px;
+  border-radius: 10px;
+  padding: 8px 6px;
+}
+
+/* hover/selección */
+.tablero .apuestas td:hover { transform: translateY(-2px); filter:brightness(1.04); }
+.tablero .apuestas td.selected { box-shadow: 0 0 0 3px #ffe082, 0 0 22px rgba(255,241,118,0.6); }
+
+/* Asegurar que 0 mantiene rowspan visual correcto en todos los navegadores */
+.tablero .apuestas td.cero {
+  vertical-align: middle;
+}
+
+/* adaptar en móvil */
+@media (max-width: 960px) {
+  .tablero .apuestas td { width: 44px; height: 40px; font-size: 13px; }
+  .tablero .apuestas td.cero { width: 66px; }
+  .tablero .apuestas td.columna { width: 64px; font-size:12px; }
+}
+
+/* FORZAR estilo de la tabla de apuestas (colocar al final del archivo) */
+.tablero > table.apuestas,
+.tablero table.apuestas {
+  width: 100% !important;
+  max-width: 100%;
+  margin: 0 auto;
+  table-layout: fixed !important;
+  border-collapse: separate !important;
+  border-spacing: 12px 10px !important; /* horizontal vertical */
+  background: transparent !important;
+}
+
+/* Celdas */
+.tablero table.apuestas td {
+  display: table-cell !important;
+  width: 56px !important;
+  height: 48px !important;
+  padding: 6px !important;
+  text-align: center !important;
+  vertical-align: middle !important;
+  border-radius: 10px !important;
+  font-weight: 700 !important;
+  color: #fff !important;
+  cursor: pointer !important;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.55) !important;
+  transition: transform .08s, box-shadow .08s !important;
+  border: 1px solid rgba(255,255,255,0.04) !important;
+  background-clip: padding-box !important;
+}
+
+/* 0 ocupa más ancho y mantiene rowspan */
+.tablero table.apuestas td.cero {
+  width: 86px !important;
+  font-size: 16px !important;
+  font-weight: 800 !important;
+  vertical-align: middle !important;
+}
+
+/* columna derecha */
+.tablero table.apuestas td.columna {
+  width: 80px !important;
+  font-size: 13px !important;
+  border-radius: 10px !important;
+}
+
+/* colores */
+.tablero table.apuestas td.rojo { background: linear-gradient(145deg,#f44336,#c62828) !important; }
+.tablero table.apuestas td.negro { background: linear-gradient(145deg,#24242b,#101015) !important; color:#fff !important; }
+
+/* hover y selección */
+.tablero table.apuestas td:hover { transform: translateY(-2px) !important; filter: brightness(1.04) !important; }
+.tablero table.apuestas td.selected { box-shadow: 0 0 0 3px #ffe082, 0 0 22px rgba(255,241,118,0.6) !important; }
+
+/* Ajustes responsivos */
+@media (max-width: 960px) {
+  .tablero table.apuestas td { width: 44px !important; height: 40px !important; font-size: 13px !important; }
+  .tablero table.apuestas td.cero { width: 66px !important; }
+  .tablero table.apuestas td.columna { width: 64px !important; font-size:12px !important; }
+}
+
+/* GRID: zero + numeros + columnas (no afecta .extras que quedan fuera) */
+.bet-grid-wrapper {
+  display: grid;
+  grid-template-columns: 86px 1fr 86px; /* 0 | números | columna derecha */
+  gap: 12px;
+  align-items: center; /* centra verticalmente el "0" respecto a la grid */
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  position: relative; /* necesario para overlays six */
+}
+.zero-cell {
+  display:flex; align-items:center; justify-content:center;
+  width:86px; border-radius:12px;
+  background: linear-gradient(145deg,#19b66b,#0f9a53);
+  color:#fff; font-weight:800; font-size:20px;
+  height: calc(3 * 48px + 2 * 10px); /* ajustar si cambias fila/gap */
+  box-shadow: 0 6px 14px rgba(0,0,0,0.55);
+  cursor:pointer;
+}
+.numbers-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 56px);
+  grid-auto-rows: 48px;
+  gap: 10px;
+  justify-content: start;
+  align-items: center;
+  justify-self: stretch;
+}
+.col-buttons { display:flex; flex-direction:column; gap:10px; justify-content:center; }
+.numbers-grid .cell,
+.col-buttons .cell { border-radius:10px; display:flex; align-items:center; justify-content:center; font-weight:700; color:#fff; cursor:pointer; box-shadow: 0 6px 14px rgba(0,0,0,0.55); }
+.numbers-grid .rojo { background: linear-gradient(145deg,#f44336,#c62828); }
+.numbers-grid .negro { background: linear-gradient(145deg,#24242b,#101015); }
+.col-buttons .col { background: linear-gradient(145deg,#1565c0,#0d47a1); }
+.numbers-grid .cell:hover,
+.col-buttons .cell:hover,
+.zero-cell:hover { transform: translateY(-2px); filter:brightness(1.04); }
+.numbers-grid .cell.selected,
+.col-buttons .cell.selected,
+.zero-cell.selected { box-shadow: 0 0 0 3px #ffe082, 0 0 22px rgba(255,241,118,0.6); }
+
+@media (max-width:960px) {
+  .bet-grid-wrapper { grid-template-columns: 72px 1fr; }
+  .zero-cell { width:72px; height: calc(3 * 40px + 2 * 8px); }
+  .numbers-grid { grid-template-columns: repeat(12, 44px); grid-auto-rows: 40px; gap:8px; }
+  .col-buttons { flex-direction:row; gap:8px; align-items:center; }
+}
+
+.numbers-grid { position: relative; }
+.bet-hotspots {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 20;
+}
+.hotspot {
+  position: absolute;
+  pointer-events: auto;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  border-radius: 6px;
+  z-index: 20;
+}
+.hotspot:hover::after {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  border-radius: 6px;
+  box-shadow: 0 0 0 2px rgba(255,232,130,0.55), 0 0 10px rgba(255,241,118,0.25);
+  pointer-events: none;
+}
+
+/* evitar que el pseudo-::after del hotspot muestre una barra para las seisenas */
+.hotspot[data-type="six"]:hover::after { display: none; }
+
+/* asegurar que las celdas están en un layer por encima del overlay (overlay usa z-index negativo) */
+.numbers-grid .cell { position: relative; z-index: 2; }
+
+/* Resaltado de las celdas implicadas en hover */
+.numbers-grid .cell.hover-aim {
+  box-shadow: 0 0 0 3px #ffe082, 0 0 14px rgba(255,241,118,0.45);
+}
+.zero-cell.hover-aim {
+  box-shadow: 0 0 0 3px #ffe082, 0 0 14px rgba(255,241,118,0.45);
+}
+
+/* barra visual para apuestas six (seisena) */
+.bet-hotspots .six-selection,
+.six-overlays .six-selection {
+  background: linear-gradient(145deg, rgba(255,224,130,0.98), rgba(255,193,7,0.95));
+  box-shadow: 0 6px 18px rgba(0,0,0,0.6), 0 0 12px rgba(255,241,118,0.35);
+  border-radius: 10px;
+  opacity: 0.95;
+  transition: transform .12s, opacity .12s;
+  pointer-events: none;
+  z-index: 6;
+}
+
+/* cuando la six-selection exista, reducir un poco su escala al colocar varias */
+.bet-hotspots .six-selection.small,
+.six-overlays .six-selection.small {
+  transform: scale(0.96);
+}
+
+/* mantener hover-aim como estaba para preview vertical (cada celda) */
+.numbers-grid .cell.hover-aim {
+  box-shadow: 0 0 0 3px #ffe082, 0 0 14px rgba(255,241,118,0.45);
+}
+.zero-cell.hover-aim {
+  box-shadow: 0 0 0 3px #ffe082, 0 0 14px rgba(255,241,118,0.45);
+}
+
+.row-bets {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap: 10px;
+  margin: 12px 0 0;
+}
+.row-bets .row-btn {
+  background: linear-gradient(145deg,#3949ab,#1a237e);
+  font-size: 0.95rem;
 }

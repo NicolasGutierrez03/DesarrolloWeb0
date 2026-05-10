@@ -1,0 +1,188 @@
+    /* --- ESTILOS GENERALES --- */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #1a1a1a;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 10px;
+            user-select: none;
+        }
+
+        h1 { color: #d4af37; text-transform: uppercase; letter-spacing: 2px; margin: 10px 0; font-size: 24px; }
+
+        /* --- DASHBOARD SUPERIOR --- */
+        .dashboard {
+            background: #2a2a2a; padding: 15px; border-radius: 10px;
+            display: flex; gap: 15px; align-items: center; 
+            margin: 0 auto 20px auto; flex-direction: column;
+            justify-content: center; 
+            border: 1px solid #444; box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            width: 95%; max-width: 800px;
+            
+        }
+
+        .saldo-box {
+            font-size: 20px; font-weight: bold; color: #4caf50;
+            background: #000; padding: 8px 20px; border-radius: 5px; border: 1px solid #4caf50;
+            width: 200px; text-align: center;
+        }
+
+        /* Contenedor de fichas flexible para muchas opciones */
+        .fichas-container { 
+            display: flex; 
+            gap: 8px; 
+            flex-wrap: wrap; 
+            justify-content: center; 
+        }
+
+        .ficha-btn {
+            width: 48px; height: 48px; border-radius: 50%; border: 2px dashed white;
+            display: flex; justify-content: center; align-items: center;
+            font-weight: bold; cursor: pointer; transition: transform 0.1s;
+            font-size: 10px; color: black; box-shadow: 0 3px 5px rgba(0,0,0,0.5);
+            text-align: center; line-height: 1;
+        }
+        .ficha-btn:hover { transform: scale(1.1); }
+        .ficha-btn.activa { transform: scale(1.15); border: 3px solid #fff200; box-shadow: 0 0 15px #fff200; z-index: 10; }
+        
+        /* --- COLORES DE FICHAS (NUEVA GAMA) --- */
+        .f-500  { background: #9c27b0; color: white; border-color: #4a148c; } /* Morado */
+        .f-1000 { background: #ff5722; color: white; border-color: #e64a19; } /* Naranja Rojizo */
+        .f-1500 { background: #e91e63; color: white; border-color: #c2185b; } /* Rosa */
+        .f-2000 { background: #3f51b5; color: white; border-color: #303f9f; } /* Azul Indigo */
+        .f-2500 { background: #03a9f4; color: black; border-color: #0288d1; } /* Azul Claro */
+        .f-3000 { background: #009688; color: white; border-color: #00796b; } /* Verde Azulado */
+        .f-3500 { background: #8bc34a; color: black; border-color: #689f38; } /* Verde Lima */
+        .f-4000 { background: #795548; color: white; border-color: #5d4037; } /* Café */
+        .f-4500 { background: #607d8b; color: white; border-color: #455a64; } /* Gris Azulado */
+        .f-5000 { background: radial-gradient(circle, #ffd700, #b8860b); color: black; border-color: #fff; text-shadow: 0px 0px 2px white; } /* Dorado */
+
+        /* --- RULETA --- */
+        .ruleta-marco {
+            position: relative; width: 280px; height: 280px; border-radius: 50%;
+            background-color: #5c3a00; border: 8px solid #2e1d00;
+            box-shadow: 0 0 20px rgba(0,0,0,0.8);
+            display: flex; justify-content: center; align-items: center;
+            overflow: hidden; 
+            
+            /* --- ESTA ES LA LÍNEA MÁGICA PARA CENTRAR --- */
+            margin: 0 auto 10px auto; 
+            /* -------------------------------------------- */
+        }
+        .ruleta-giratoria {
+            width: 260px; height: 260px; border-radius: 50%; position: relative;
+            transition: transform 5s cubic-bezier(0.25, 0.1, 0.25, 1);
+        }
+
+        .numero-rueda {
+            position: absolute; top: 0; left: 50%; width: 2px; height: 50%;
+            transform-origin: bottom center; display: flex; justify-content: center; z-index: 1;
+        }
+        .numero-rueda span {
+            position: absolute; top: 5px; left: -10px; width: 20px; text-align: center;
+            font-size: 10px; font-weight: bold; color: white; transform: rotate(180deg);
+        }
+
+        .gajo {
+            position: absolute; top: 0; left: 50%; width: 0; height: 0;
+            border-left: 11px solid transparent; border-right: 11px solid transparent;
+            border-top: 130px solid red; transform-origin: bottom center; transform: translateX(-50%); z-index: 0;
+        }
+
+        .centro-rueda {
+            position: absolute; width: 120px; height: 120px;
+            background: radial-gradient(circle, #d4af37 0%, #8a6e18 100%);
+            border-radius: 50%; z-index: 2; box-shadow: 0 0 10px rgba(0,0,0,0.5);
+            display: flex; justify-content: center; align-items: center;
+        }
+        .centro-adorno {
+            width: 80px; height: 80px; background-color: #1a1a1a; border-radius: 50%;
+            display: flex; justify-content: center; align-items: center;
+            color: #d4af37; font-size: 20px; font-weight: bold;
+        }
+        .marcador {
+            position: absolute; top: -10px; left: 50%; transform: translateX(-50%);
+            width: 0; height: 0; border-left: 10px solid transparent; border-right: 10px solid transparent;
+            border-top: 20px solid #fff200; z-index: 10;
+        }
+
+        /* --- HISTORIAL --- */
+        .historial-container {
+            display: flex; gap: 10px; justify-content: center; margin-bottom: 20px;
+            min-height: 60px; 
+        }
+        .item-historial {
+            display: flex; flex-direction: column; align-items: center;
+            animation: fadeIn 0.5s ease-out;
+        }
+        .bola-historial {
+            width: 30px; height: 30px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 12px; border: 2px solid #fff; font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+        }
+        .dinero-historial {
+            font-size: 11px; margin-top: 4px; font-weight: bold;
+            padding: 2px 5px; border-radius: 4px; background: rgba(0,0,0,0.5);
+        }
+        .gain-pos { color: #00e600; }
+        .gain-neg { color: #ff3333; }
+        .gain-neu { color: #aaa; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* --- TABLERO --- */
+        .tablero-container {
+            background: #222; padding: 20px; border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5); width: 100%; max-width: 950px;
+        }
+        .grid-numeros {
+            display: grid; grid-template-columns: 60px repeat(12, 1fr) 60px;
+            grid-template-rows: repeat(3, 50px); gap: 4px; margin-bottom: 15px;
+        }
+        .btn-tablero {
+            position: relative; border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 6px; display: flex; justify-content: center; align-items: center;
+            font-weight: bold; font-size: 14px; color: white; cursor: pointer;
+            text-shadow: 1px 1px 2px black; transition: filter 0.1s;
+        }
+        .btn-tablero:hover { filter: brightness(1.3); }
+        
+        .ficha-apostada {
+            position: absolute; width: 28px; height: 28px; border-radius: 50%;
+            background: white; border: 1px solid #333; color: black; font-size: 7.5px;
+            display: flex; justify-content: center; align-items: center; z-index: 5;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.8); pointer-events: none; font-weight: bold;
+        }
+
+        /* Colores Tablero */
+        .bg-verde { background: linear-gradient(to bottom, #00e600, #008000); }
+        .bg-rojo { background: linear-gradient(to bottom, #ff3333, #cc0000); }
+        .bg-negro { background: linear-gradient(to bottom, #444, #111); }
+        .bg-azul { background: linear-gradient(to bottom, #3399ff, #0055aa); }
+        .bg-amarillo { background: linear-gradient(to bottom, #ffcc00, #ffaa00); color: black; text-shadow: none; }
+        .bg-verde-claro { background: linear-gradient(to bottom, #66cc66, #339933); }
+        .bg-morado { background: linear-gradient(to bottom, #cc66ff, #8800cc); }
+        .bg-naranja { background: linear-gradient(to bottom, #ff9933, #cc5500); }
+        .cero-grande { grid-row: 1 / span 3; grid-column: 1; font-size: 24px; }
+
+        /* --- CONTROLES --- */
+        .grid-controles { display: grid; gap: 10px; }
+        .fila-1 { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr 2fr 2fr 2fr 1fr 1fr; gap: 8px; }
+        .fila-2 { display: grid; grid-template-columns: 2fr 2fr 2fr 2fr 1.5fr 1.5fr; gap: 8px; margin-top: 5px; }
+        
+        .btn-girar-action {
+            background: linear-gradient(to bottom, #ff3333, #990000);
+            font-size: 16px; text-transform: uppercase; box-shadow: 0 4px 0 #550000;
+        }
+        .btn-girar-action:active { box-shadow: none; transform: translateY(4px); }
+        .btn-disabled { filter: grayscale(1); cursor: not-allowed; opacity: 0.6; }
+        
+        .apuesta-info { color: #aaa; font-size: 14px; text-align: center; margin-top: 5px; }
+        .limite-warning { color: #ff3333; animation: parpadeo 1s infinite; }
+        @keyframes parpadeo { 0% {opacity: 1;} 50% {opacity: 0.5;} 100% {opacity: 1;} }
+
+    

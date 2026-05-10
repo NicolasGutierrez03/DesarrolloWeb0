@@ -1,0 +1,31 @@
+# --- .htaccess para /2025-2/comboCompleto/api/v1/ ---
+
+# 1) Encendemos mod_rewrite
+RewriteEngine On
+
+# 2) MUY IMPORTANTE: base real del proyecto en el server
+#    Cambia esto si mueves el proyecto de carpeta.
+RewriteBase /2025-2/comboCompleto/api/v1/
+
+# 3) Si el recurso solicitado ES un archivo o un directorio físico, no tocamos nada.
+#    Esto deja pasar CSS/JS/imagenes y también permite entrar a subcarpetas reales.
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# 4) Router minimalista por carpeta de recurso:
+#    Toma la PRIMERA parte del path y la envía a <recurso>/index.php
+#    Ejemplos:
+#      /usuario/            -> /usuario/index.php
+#      /usuario/1/          -> /usuario/index.php   (y el "1" queda en el path extra)
+#      /menu/               -> /menu/index.php
+#    La bandera QSA preserva querystrings (?username=...), L corta la reescritura.
+RewriteRule ^([^/]+)/?.*$ $1/index.php [L,QSA]
+
+# 5) Opcional pero útil: fuerza barra final para evitar 301 raros del server
+#    Solo si NO es archivo/dir real, redirigimos /usuario a /usuario/ (estético y consistente).
+#    Si no quieres este comportamiento, comenta este bloque.
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} !/$
+RewriteRule ^(.+)$ /2025-2/comboCompleto/api/v1/$1/ [R=301,L]

@@ -1,4 +1,5 @@
 getModalRegister();
+
 function getModalRegister() {
     const modal = document.getElementById("modalsRegister");
     modal.innerHTML = `
@@ -12,16 +13,14 @@ function getModalRegister() {
             </div>
 
             <div class="modal-body">
-                <form id="registerForm" onsubmit="return validarRegistro(this)">
+                <!-- CORRECCIÓN 1: Quitamos onsubmit="return validarRegistro(this)" -->
+                <form id="registerForm">
 
-                <div id="msgAlertaRegistro" class="alert alert-danger alert-dismissible fade show d-none" role="alert">
-                    <strong>Error!</strong> Revise sus credenciales (recuadros rojos).
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
-                </div>
+                <div id="msgAlertaRegistro" class="alert alert-danger d-none" role="alert"></div>
 
                 <div class="mb-3">
                     <label for="registerName" class="form-label">Nombre Completo</label>
-                    <input type="text" class="form-control" id="registerName" placeholder="Jose Manuel">
+                    <input type="text" class="form-control" id="registerName" placeholder="Jose Manuel" required>
                 </div>
 
                 <div class="mb-3">
@@ -31,7 +30,7 @@ function getModalRegister() {
 
                 <div class="mb-3">
                     <label for="registerEmail" class="form-label">Correo Electrónico</label>
-                    <input type="email" class="form-control" id="registerEmail" placeholder="tu@correo.com">
+                    <input type="email" class="form-control" id="registerEmail" placeholder="tu@correo.com" required>
                 </div>
 
                 <div class="mb-3">
@@ -42,12 +41,23 @@ function getModalRegister() {
 
                 <div class="mb-3">
                     <label for="registerPassword" class="form-label">Crear Contraseña</label>
-                    <input type="password" class="form-control" id="registerPassword">
+                    <div class="input-group">
+                        <input type="password" class="form-control" id="registerPassword" required>
+                        <button class="btn btn-outline-secondary" type="button" onclick="togglePassword('registerPassword', this)">
+                            <!-- Si tienes Bootstrap Icons usa: <i class="bi bi-eye"></i> -->
+                            Ver
+                        </button>
+                    </div>
                 </div>
 
                 <div class="mb-3">
                     <label for="registerPasswordConfirm" class="form-label">Confirmar Contraseña</label>
-                    <input type="password" class="form-control" id="registerPasswordConfirm">
+                    <div class="input-group">
+                        <input type="password" class="form-control" id="registerPasswordConfirm" required>
+                        <button class="btn btn-outline-secondary" type="button" onclick="togglePassword('registerPasswordConfirm', this)">
+                            Ver
+                        </button>
+                    </div>
                 </div>
 
                 <button type="submit" class="btn btn-primary w-100">Crear Cuenta</button>
@@ -66,7 +76,9 @@ function getModalRegister() {
         </div> 
         </div>`;
 
-        setTimeout(() => {
+    // CORRECCIÓN 2: Toda la lógica JS va dentro del setTimeout para asegurar que el HTML existe
+    setTimeout(() => {
+        // Lógica del RUT (Mantenida)
         const rutInput = document.getElementById('rut');
         if (rutInput) {
             rutInput.addEventListener('input', function (e) {
@@ -75,6 +87,52 @@ function getModalRegister() {
                     e.target.value = value.slice(0, -1) + '-' + value.slice(-1);
                 } else {
                     e.target.value = value;
+                }
+            });
+        }
+
+        // Lógica del Submit (Movida aquí adentro y corregidos los IDs)
+        const formRegister = document.getElementById('registerForm');
+        if (formRegister) {
+            formRegister.addEventListener('submit', async (e) => {
+                e.preventDefault();
+
+                const nombreUsuario = document.getElementById('registerName').value;
+                const email = document.getElementById('registerEmail').value;
+                const password = document.getElementById('registerPassword').value;
+                const rut = document.getElementById('rut').value;
+                const fechaNacimiento = document.getElementById('registerDob').value;
+
+                // 1. Datos para el REGISTRO (Tu PHP register lee 'mail')
+                const formData = new URLSearchParams();
+                formData.append("username", nombreUsuario);
+                formData.append("password", password);
+                formData.append("mail", email); // PHP register usa 'mail'
+                formData.append("persona_id", rut);
+                formData.append("fechaNacimiento", fechaNacimiento);
+
+                try {
+
+                    await apiPost("/auth/register/index.php", formData);
+
+
+                    const loginParams = new URLSearchParams();
+                    loginParams.append("email", email); 
+                    loginParams.append("password", password);
+                    
+                    const loginData = await apiPost("/auth/login/index.php", loginParams);
+                    
+
+                    localStorage.setItem('currentUser', JSON.stringify(loginData.user));
+
+                    alert("¡Registro exitoso!");
+                    window.location.reload();
+
+                } catch (error) {
+                    console.error(error);
+                    const alerta = document.getElementById('msgAlertaRegistro');
+                    alerta.textContent = "Error: " + (error.message || "No se pudo registrar");
+                    alerta.classList.remove('d-none');
                 }
             });
         }

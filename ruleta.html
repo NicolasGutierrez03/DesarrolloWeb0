@@ -1,198 +1,143 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Casino UDP</title>
-    <link rel="stylesheet" href="css/Bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" href="css/styles.css">
-</head>
-
-<body class="mybody">
-
-    <header id="menuPrincipal" class="myheader"></header>
-    <main>
-        <div id="modalslogin"></div>         
-        <div id="modalsRegister"></div>
-
-        <section>
-            <div class="content-row">
-        <!-- PANEL DE LA RULETA -->
-        <section class="wheel-panel">
-          <div class="wheel-title">Ruleta Europea</div>
-
-          <div class="wheel-outer" id="wheel-container">
-            <div class="wheel-track" id="wheel-track"></div>
-            <div class="wheel-inner">
-              <span id="wheel-number">?</span>
-            </div>
-            <div class="wheel-pointer"></div>
-          </div>
-
-          <div class="wheel-meta">
-            <div class="badge-pill">
-              <span class="badge-pill-dot"></span>
-              <span>Saldo: <strong id="balance-value">1000</strong> créditos</span>
-            </div>
-            <span id="last-spin">Esperando primera tirada...</span>
-          </div>
-        </section>
-
-        <!-- MESA / CONTROLES -->
-        <section class="bet-panel">
-          <!-- GRID PRINCIPAL -->
-          <div class="tablero">
-            <div class="bet-grid-wrapper">
-              <!-- 0 separado -->
-              <div class="zero-cell" data-type="number" data-value="0">0</div>
-
-              <!-- números en 12 columnas x 3 filas (orden: fila superior 3,6,9.. ; fila media 2,5,8.. ; fila inferior 1,4,7..) -->
-              <div class="numbers-grid" id="bet-grid">
-                <!-- fila superior -->
-                <div class="cell rojo" data-type="number" data-value="3">3</div>
-                <div class="cell negro" data-type="number" data-value="6">6</div>
-                <div class="cell rojo" data-type="number" data-value="9">9</div>
-                <div class="cell rojo" data-type="number" data-value="12">12</div>
-                <div class="cell negro" data-type="number" data-value="15">15</div>
-                <div class="cell rojo" data-type="number" data-value="18">18</div>
-                <div class="cell rojo" data-type="number" data-value="21">21</div>
-                <div class="cell negro" data-type="number" data-value="24">24</div>
-                <div class="cell rojo" data-type="number" data-value="27">27</div>
-                <div class="cell rojo" data-type="number" data-value="30">30</div>
-                <div class="cell negro" data-type="number" data-value="33">33</div>
-                <div class="cell rojo" data-type="number" data-value="36">36</div>
-
-                <!-- fila media -->
-                <div class="cell negro" data-type="number" data-value="2">2</div>
-                <div class="cell rojo" data-type="number" data-value="5">5</div>
-                <div class="cell negro" data-type="number" data-value="8">8</div>
-                <div class="cell negro" data-type="number" data-value="11">11</div>
-                <div class="cell rojo" data-type="number" data-value="14">14</div>
-                <div class="cell negro" data-type="number" data-value="17">17</div>
-                <div class="cell negro" data-type="number" data-value="20">20</div>
-                <div class="cell rojo" data-type="number" data-value="23">23</div>
-                <div class="cell negro" data-type="number" data-value="26">26</div>
-                <div class="cell negro" data-type="number" data-value="29">29</div>
-                <div class="cell rojo" data-type="number" data-value="32">32</div>
-                <div class="cell negro" data-type="number" data-value="35">35</div>
-
-                <!-- fila inferior -->
-                <div class="cell rojo" data-type="number" data-value="1">1</div>
-                <div class="cell negro" data-type="number" data-value="4">4</div>
-                <div class="cell rojo" data-type="number" data-value="7">7</div>
-                <div class="cell negro" data-type="number" data-value="10">10</div>
-                <div class="cell negro" data-type="number" data-value="13">13</div>
-                <div class="cell rojo" data-type="number" data-value="16">16</div>
-                <div class="cell rojo" data-type="number" data-value="19">19</div>
-                <div class="cell negro" data-type="number" data-value="22">22</div>
-                <div class="cell rojo" data-type="number" data-value="25">25</div>
-                <div class="cell negro" data-type="number" data-value="28">28</div>
-                <div class="cell negro" data-type="number" data-value="31">31</div>
-                <div class="cell rojo" data-type="number" data-value="34">34</div>
-              </div>
-            </div>
-            
-            <div class="extras"></div>
-            <div class="row-bets">
-              <div class="cell row-btn" data-type="row" data-value="1">COL 1</div>
-              <div class="cell row-btn" data-type="row" data-value="2">COL 2</div>
-              <div class="cell row-btn" data-type="row" data-value="3">COL 3</div>
-            </div>
-            <!-- BOTONES DE TIPO DE APUESTA -->
-              <div class="bet-actions-top">
-                <button class="chip-btn chip-red" data-bet="color" data-value="red">Rojo</button>
-                <button class="chip-btn chip-black" data-bet="color" data-value="black">Negro</button>
-                <button class="chip-btn chip-blue" data-bet="parity" data-value="even">Par</button>
-                <button class="chip-btn chip-yellow" data-bet="parity" data-value="odd">Impar</button>
-                <button class="chip-btn chip-green" data-bet="dozen" data-value="1">1ª Docena</button>
-                <button class="chip-btn chip-purple" data-bet="dozen" data-value="2">2ª Docena</button>
-                <button class="chip-btn chip-orange" data-bet="dozen" data-value="3">3ª Docena</button>
-                <button class="chip-btn chip-main" data-action="place">Apostar</button>
-                <button class="chip-btn chip-main" data-action="spin">Girar</button>
-                <button class="chip-btn chip-secondary" data-action="clear">Borrar apuestas</button>
-                <button class="chip-btn chip-secondary" data-action="undo">Deshacer apuesta</button>
-                <button class="chip-btn chip-secondary" data-action="double">Doblar apuesta</button>
-              </div>
-            </div>
-            <!-- FOOTER -->
-            <div class="bet-footer">
-              <div class="footer-left">
-                <span>Monto:</span>
-                <div class="footer-input">
-                  <input type="number" id="bet-amount" min="1" value="10" />
-                  <span>créditos</span>
-                </div>
-                <span>| Apuesta total: <strong id="total-bet">0</strong></span>
-              </div>
-
-              <div class="footer-right">
-                <button class="btn-secondary-ghost" id="btn-rebet">
-                  <span class="dot-red"></span>
-                  Reapuesta
-                </button>
-                <button class="btn-primary" id="spin-button">Girar Ruleta</button>
-              </div>
-            </div>
-
-            <div class="status-row">
-              <span><span class="status-label">Resultado:</span> <span id="result-text">—</span></span>
-              <span><span class="status-label">Mensaje:</span> <span id="message-text">Coloca tus fichas y gira.</span></span>
-            </div>
-          </div>
-
-        </section>
-        
-
-
-        <div id="reglas-anchor" class="reglas reglas-fondo">
-
-            <h3 class="text-center titulo-seccion">Reglas de la ruleta</h3>
-            <div class="container">
-                <h5 class="mt-4">Características principales</h5>
-                <ul>
-                    <li>La ruleta europea tiene 37 casillas: los números del 1 al 36 y un solo 0 (verde).</li>
-                    <li>Los números se alternan en colores rojo y negro, salvo el 0, que siempre es verde.</li>
-                    <li>El objetivo es predecir en qué número o grupo de números caerá la bola después de girar la ruleta.</li>
-                </ul>
-
-                <h5 class="mt-4">Tipos de apuestas</h5>
-                <strong>1. Apuestas internas (Inside bets)</strong>
-                <ul>
-                    <li><b>Pleno:</b> apostar a un solo número (paga 35:1).</li>
-                    <li><b>Caballo:</b> dos números contiguos (paga 17:1).</li>
-                    <li><b>Calle:</b> tres números en fila (paga 11:1).</li>
-                    <li><b>Cuadro (o esquina):</b> cuatro números en un mismo cuadrado (paga 8:1).</li>
-                    <li><b>Seisena:</b> seis números (dos filas de tres) (paga 5:1).</li>
-                </ul>
-                <strong>2. Apuestas externas (Outside bets)</strong>
-                <ul>
-                    <li><b>Rojo o Negro</b> (paga 1:1).</li>
-                    <li><b>Par o Impar</b> (paga 1:1).</li>
-                    <li><b>Bajo (1–18) o Alto (19–36)</b> (paga 1:1).</li>
-                    <li><b>Docenas</b> (1–12, 13–24, 25–36) (paga 2:1).</li>
-                    <li><b>Columnas</b> (una de las 3 columnas horizontales de 12 números) (paga 2:1).</li>
-                </ul>
-
-                <h5 class="mt-4">Reglas básicas del juego</h5>
-                <ul>
-                    <li>Los jugadores colocan sus fichas en el tapete de apuestas.</li>
-                    <li>El crupier hace girar la ruleta y lanza la bola.</li>
-                    <li>Se cierran las apuestas cuando el crupier anuncia “no va más”.</li>
-                    <li>La bola se detiene en una casilla numerada y de color.</li>
-                    <li>Se paga a los ganadores según la tabla de pagos y se retiran las apuestas perdedoras.</li>
-                </ul>
-
-                <h5 class="mt-4">Ventaja de la casa</h5>
-                <ul>
-                    <li>En la ruleta europea, al haber un solo 0, la ventaja de la casa es de 2,7%, más baja que en la ruleta americana (que tiene 0 y 00).</li>
-                </ul>
-            </div>
-        </div>
-
-    </main>
-    <footer id="footer" class="myfooter text-white py-4"></footer>
-
-    <script src="js/main.js"></script>
-    <script src="js/ruleta.js"></script>
-</body>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Casino UDP</title>
+    <link rel="stylesheet" href="css/Bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/ruleta.css">
+</head>
+
+<body class="mybody">
+
+    <header id="menuPrincipal" class="myheader"></header>
+    <main>
+        <div id="modalslogin"></div>         
+        <div id="modalsRegister"></div>
+
+        <section>
+            
+            <div class="dashboard">
+                <div class="saldo-box">Saldo: $<span id="saldo-valor">100000</span></div>
+                <div class="fichas-container">
+                    <div class="ficha-btn f-500 activa" onclick="seleccionarFicha(500, this)">500</div>
+                    <div class="ficha-btn f-1000" onclick="seleccionarFicha(1000, this)">1k</div>
+                    <div class="ficha-btn f-1500" onclick="seleccionarFicha(1500, this)">1.5k</div>
+                    <div class="ficha-btn f-2000" onclick="seleccionarFicha(2000, this)">2k</div>
+                    <div class="ficha-btn f-2500" onclick="seleccionarFicha(2500, this)">2.5k</div>
+                    <div class="ficha-btn f-3000" onclick="seleccionarFicha(3000, this)">3k</div>
+                    <div class="ficha-btn f-3500" onclick="seleccionarFicha(3500, this)">3.5k</div>
+                    <div class="ficha-btn f-4000" onclick="seleccionarFicha(4000, this)">4k</div>
+                    <div class="ficha-btn f-4500" onclick="seleccionarFicha(4500, this)">4.5k</div>
+                    <div class="ficha-btn f-5000" onclick="seleccionarFicha(5000, this)">5k</div>
+                </div>
+            </div>
+
+            <div class="casino-container">
+                <div>
+                    <div class="ruleta-marco">
+                        <div class="marcador"></div>
+                        <div class="ruleta-giratoria" id="ruleta"></div>
+                        <div class="centro-rueda">
+                            <div class="centro-adorno" id="resultado-display">UDP</div>
+                        </div>
+                    </div>
+                    
+                    <div id="mensaje-estado" style="text-align: center; font-weight: bold; color: #ccc; height: 20px; margin-bottom: 5px;">Haz tu apuesta</div>
+                    
+                    <div class="apuesta-info">Mesa: $<span id="total-mesa">0</span> / <span style="color:#d4af37">Max $5000</span></div>
+
+                    <div class="historial-container" id="historial-container"></div>
+                </div>
+
+                <div class="tablero-container">
+                    <div class="grid-numeros" id="grid-numeros">
+                        <div class="btn-tablero bg-verde cero-grande" onclick="apostar('pleno', 0, this)">0</div>
+                        <div class="btn-tablero bg-azul" style="grid-row: 1; grid-column: 14;" onclick="apostar('columna', 3, this)">3ª COL</div>
+                        <div class="btn-tablero bg-azul" style="grid-row: 2; grid-column: 14;" onclick="apostar('columna', 2, this)">2ª COL</div>
+                        <div class="btn-tablero bg-azul" style="grid-row: 3; grid-column: 14;" onclick="apostar('columna', 1, this)">1ª COL</div>
+                    </div>
+
+                    <div class="grid-controles">
+                        <div class="fila-1">
+                            <div class="btn-tablero bg-rojo" onclick="apostar('color', 'rojo', this)">Rojo</div>
+                            <div class="btn-tablero bg-negro" onclick="apostar('color', 'negro', this)">Negro</div>
+                            <div class="btn-tablero bg-azul" onclick="apostar('paridad', 'par', this)">Par</div>
+                            <div class="btn-tablero bg-amarillo" onclick="apostar('paridad', 'impar', this)">Impar</div>
+                            <div class="btn-tablero bg-verde-claro" onclick="apostar('docena', 1, this)">1ª Doc</div>
+                            <div class="btn-tablero bg-morado" onclick="apostar('docena', 2, this)">2ª Doc</div>
+                            <div class="btn-tablero bg-naranja" onclick="apostar('docena', 3, this)">3ª Doc</div>
+                            <div class="btn-tablero bg-negro" onclick="alert('Ayuda: Clica en los números para apostar')">Ayuda</div>
+                            <div class="btn-tablero btn-girar-action" id="btnGirar">GIRAR</div>
+                        </div>
+                        <div class="fila-2">
+                            <div class="btn-tablero bg-rojo" onclick="borrarApuestas()">Borrar Todo</div>
+                            <div class="btn-tablero bg-rojo" onclick="deshacerUltimaApuesta()">Deshacer</div>
+                            <div class="btn-tablero bg-azul" onclick="alert('Solo versión PRO')">Reapuesta</div>
+                            <div class="btn-tablero bg-azul" onclick="doblarApuesta()">Doblar</div>
+                            <div class="btn-tablero bg-rojo" onclick="apostar('mitad', 'bajo', this)">Bajo (1-18)</div>
+                            <div class="btn-tablero bg-rojo" onclick="apostar('mitad', 'alto', this)">Alto (19-36)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <br>    
+        <br>
+
+        <div id="reglas-anchor" class="reglas reglas-fondo">
+
+            <h3 class="text-center titulo-seccion">Reglas de la ruleta</h3>
+            <div class="container">
+                <h5 class="mt-4">Características principales</h5>
+                <ul>
+                    <li>La ruleta europea tiene 37 casillas: los números del 1 al 36 y un solo 0 (verde).</li>
+                    <li>Los números se alternan en colores rojo y negro, salvo el 0, que siempre es verde.</li>
+                    <li>El objetivo es predecir en qué número o grupo de números caerá la bola después de girar la ruleta.</li>
+                </ul>
+
+                <h5 class="mt-4">Tipos de apuestas</h5>
+                <strong>1. Apuestas internas (Inside bets)</strong>
+                <ul>
+                    <li><b>Pleno:</b> apostar a un solo número (paga 35:1).</li>
+                    <li><b>Caballo:</b> dos números contiguos (paga 17:1).</li>
+                    <li><b>Calle:</b> tres números en fila (paga 11:1).</li>
+                    <li><b>Cuadro (o esquina):</b> cuatro números en un mismo cuadrado (paga 8:1).</li>
+                    <li><b>Seisena:</b> seis números (dos filas de tres) (paga 5:1).</li>
+                </ul>
+                <strong>2. Apuestas externas (Outside bets)</strong>
+                <ul>
+                    <li><b>Rojo o Negro</b> (paga 1:1).</li>
+                    <li><b>Par o Impar</b> (paga 1:1).</li>
+                    <li><b>Bajo (1–18) o Alto (19–36)</b> (paga 1:1).</li>
+                    <li><b>Docenas</b> (1–12, 13–24, 25–36) (paga 2:1).</li>
+                    <li><b>Columnas</b> (una de las 3 columnas horizontales de 12 números) (paga 2:1).</li>
+                </ul>
+
+                <h5 class="mt-4">Reglas básicas del juego</h5>
+                <ul>
+                    <li>Los jugadores colocan sus fichas en el tapete de apuestas.</li>
+                    <li>El crupier hace girar la ruleta y lanza la bola.</li>
+                    <li>Se cierran las apuestas cuando el crupier anuncia “no va más”.</li>
+                    <li>La bola se detiene en una casilla numerada y de color.</li>
+                    <li>Se paga a los ganadores según la tabla de pagos y se retiran las apuestas perdedoras.</li>
+                </ul>
+
+                <h5 class="mt-4">Ventaja de la casa</h5>
+                <ul>
+                    <li>En la ruleta europea, al haber un solo 0, la ventaja de la casa es de 2,7%, más baja que en la ruleta americana (que tiene 0 y 00).</li>
+                </ul>
+            </div>
+        </div>
+
+    </main>
+    <footer id="footer" class="myfooter text-white py-4"></footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/ruleta.js"></script>
+
+</body>
 </html>
